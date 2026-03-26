@@ -243,22 +243,22 @@ static void MX_MRSUBG_Init(void)
   */
   MRSUBG_RadioInitStruct.lFrequencyBase = 915000000;
   MRSUBG_RadioInitStruct.xModulationSelect = MOD_2FSK;
-  MRSUBG_RadioInitStruct.lDatarate = 0;
-  MRSUBG_RadioInitStruct.lFreqDev = 0;
-  MRSUBG_RadioInitStruct.lBandwidth = 0;
+  MRSUBG_RadioInitStruct.lDatarate = 100000;
+  MRSUBG_RadioInitStruct.lFreqDev = 50000;
+  MRSUBG_RadioInitStruct.lBandwidth = 200000;
   MRSUBG_RadioInitStruct.dsssExp = 0;
-  MRSUBG_RadioInitStruct.outputPower = 0x0;
+  MRSUBG_RadioInitStruct.outputPower = 0x0E;
   MRSUBG_RadioInitStruct.PADrvMode = PA_DRV_TX;
   HAL_MRSubG_Init(&MRSUBG_RadioInitStruct);
 
   /** Configures the packet parameters
   */
   MRSUBG_PacketSettingsStruct.Modulation = MOD_2FSK;
-  MRSUBG_PacketSettingsStruct.PreambleLength = 4;
-  MRSUBG_PacketSettingsStruct.FCSType = PKT_NO_CRC;
+  MRSUBG_PacketSettingsStruct.PreambleLength = 8;
+  MRSUBG_PacketSettingsStruct.FCSType = PKT_CRC_MODE_16BITS_1;
   MRSUBG_PacketSettingsStruct.Whitening = ENABLE;
   MRSUBG_PacketSettingsStruct.FecType = FEC_15_4_G_NONE;
-  MRSUBG_PacketSettingsStruct.FrameLength = 0;
+  MRSUBG_PacketSettingsStruct.FrameLength = 4;
   HAL_MRSubG_802_15_4_PacketInit(&MRSUBG_PacketSettingsStruct);
   /* USER CODE BEGIN MRSUBG_Init 2 */
 
@@ -285,7 +285,7 @@ static void MX_SPI3_Init(void)
   hspi3.Instance = SPI3;
   hspi3.Init.Mode = SPI_MODE_MASTER;
   hspi3.Init.Direction = SPI_DIRECTION_2LINES;
-  hspi3.Init.DataSize = SPI_DATASIZE_4BIT;
+  hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi3.Init.NSS = SPI_NSS_SOFT;
