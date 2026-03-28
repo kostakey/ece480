@@ -1,0 +1,113 @@
+23:36:06 **** Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+make: *** No rule to make target 'C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal.c', needed by 'Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal.o'.  Stop.
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:38:16 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_adc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_adc.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_adc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_adc.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_cortex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_cortex.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_cortex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_cortex.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_dma.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_dma.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_dma.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_dma.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_flash.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_flash.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_flash.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_flash_ex.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_flash_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_flash_ex.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_gpio.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_gpio.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_gpio.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_mrsubg.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_mrsubg.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_mrsubg.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_mrsubg.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_pwr.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_pwr.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_pwr.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_pwr.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_pwr_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_pwr_ex.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_pwr_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_pwr_ex.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_rcc.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_rcc.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_rcc.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_rcc.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_rcc_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_rcc_ex.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_rcc_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_rcc_ex.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_spi.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_spi.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_spi.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_spi_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_spi_ex.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_spi_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_spi_ex.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_tim.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_tim.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_tim.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_tim.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_tim_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_tim_ex.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_tim_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_tim_ex.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_uart.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_uart.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_uart.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_uart.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_uart_ex.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_uart_ex.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_uart_ex.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_hal_uart_ex.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_ll_utils.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_ll_utils.d" -MT"Drivers/STM32WL3x_HAL_Driver/stm32wl3x_ll_utils.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/STM32WL3x_HAL_Driver/stm32wl3x_ll_utils.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/system_stm32wl3x.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Drivers/CMSIS/system_stm32wl3x.d" -MT"Drivers/CMSIS/system_stm32wl3x.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Drivers/CMSIS/system_stm32wl3x.o"
+arm-none-eabi-gcc -mcpu=cortex-m0plus -g3 -DDEBUG -c -x assembler-with-cpp -MMD -MP -MF"Application/User/Startup/startup_stm32wl33kcvx.d" -MT"Application/User/Startup/startup_stm32wl33kcvx.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Startup/startup_stm32wl33kcvx.o" "../Application/User/Startup/startup_stm32wl33kcvx.s"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/stm32wl3x_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32wl3x_hal_msp.d" -MT"Application/User/Core/stm32wl3x_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/stm32wl3x_hal_msp.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/stm32wl3x_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32wl3x_it.d" -MT"Application/User/Core/stm32wl3x_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/stm32wl3x_it.o"
+arm-none-eabi-gcc "../Application/User/Core/syscalls.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/syscalls.d" -MT"Application/User/Core/syscalls.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/syscalls.o"
+arm-none-eabi-gcc "../Application/User/Core/sysmem.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/sysmem.d" -MT"Application/User/Core/sysmem.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/sysmem.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  19548	     16	   3452	  23016	   59e8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:38:46 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19548	     16	   3452	  23016	   59e8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:39:09 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19548	     16	   3452	  23016	   59e8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:39:32 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19548	     16	   3452	  23016	   59e8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:39:58 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19548	     16	   3452	  23016	   59e8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:44:11 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19548	     16	   3452	  23016	   59e8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:44:36 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19548	     16	   3452	  23016	   59e8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:48:48 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  19560	     16	   3452	  23028	   59f4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:49:06 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19560	     16	   3452	  23028	   59f4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+00:02:40 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  19560	     16	   3452	  23028	   59f4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 

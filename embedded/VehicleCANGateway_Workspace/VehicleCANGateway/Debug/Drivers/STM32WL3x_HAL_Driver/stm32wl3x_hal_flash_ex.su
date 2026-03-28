@@ -1,0 +1,8 @@
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:108:19:HAL_FLASHEx_Erase	32	static
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:166:19:HAL_FLASHEx_Erase_IT	16	static
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:222:19:HAL_FLASHEx_OTPWrite	32	static
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:256:19:HAL_FLASHEx_OTPWrite_IT	16	static
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:293:19:HAL_FLASHEx_PageProtection	16	static
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:351:13:FLASH_MassErase	8	static
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:366:6:FLASH_PageErase	16	static
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:386:13:FLASH_Program_OTPWord	24	static

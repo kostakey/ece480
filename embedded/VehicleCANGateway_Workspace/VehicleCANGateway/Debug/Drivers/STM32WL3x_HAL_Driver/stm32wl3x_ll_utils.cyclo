@@ -1,0 +1,9 @@
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_rcc.h:770:26:LL_RCC_DIRECT_HSE_IsEnabled	2
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_rcc.h:1577:26:LL_RCC_GetRC64MPLLPrescaler	1
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_utils.h:256:22:LL_InitTick	1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_ll_utils.c:94:6:LL_Init1msTick	1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_ll_utils.c:111:6:LL_mDelay	4
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_ll_utils.c:147:6:LL_SetSystemCoreClock	1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_ll_utils.c:157:10:LL_GetSystemCoreClock	1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_ll_utils.c:168:6:LL_SetXTALFreq	15
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_ll_utils.c:208:10:LL_GetXTALFreq	1

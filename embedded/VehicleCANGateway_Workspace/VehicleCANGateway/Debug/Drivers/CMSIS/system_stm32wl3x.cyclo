@@ -1,0 +1,5 @@
+../../Drivers/CMSIS/Include/core_cm0plus.h:850:22:__NVIC_SetPriority	2
+../../Drivers/CMSIS/Include/core_cm0plus.h:987:34:__NVIC_SystemReset	1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/system_stm32wl3x.c:194:6:SystemInit	7
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/system_stm32wl3x.c:300:6:SystemCoreClockUpdate	4
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/system_stm32wl3x.c:338:13:CPUcontextRestore	1
