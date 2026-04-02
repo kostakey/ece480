@@ -4077,3 +4077,463 @@ Finished building: default.size.stdout
  
 Finished building: VehicleCANGateway.list
  
+23:39:25 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23960	     16	   3476	  27452	   6b3c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:45:18 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23960	     16	   3476	  27452	   6b3c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:55:33 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24008	     16	   3480	  27504	   6b70	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:02:29 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24080	     16	   3484	  27580	   6bbc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:07:24 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:195:3: error: 'check10C0' undeclared (first use in this function); did you mean 'check10A0'?
+  195 |   check10C0 = TCAN4550_ReadReg(0x10C0);
+      |   ^~~~~~~~~
+      |   check10A0
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:195:3: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+00:08:11 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24116	     16	   3488	  27620	   6be4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:10:16 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24128	     16	   3488	  27632	   6bf0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:12:58 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24160	     16	   3492	  27668	   6c14	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:30:48 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24120	     16	   3492	  27628	   6bec	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:37:09 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24132	     16	   3492	  27640	   6bf8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:45:26 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24168	     16	   3496	  27680	   6c20	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:49:17 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24184	     16	   3496	  27696	   6c30	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:49:51 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24184	     16	   3496	  27696	   6c30	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+00:53:42 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24152	     16	   3496	  27664	   6c10	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:11:43 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24196	     16	   3496	  27708	   6c3c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:26:03 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24164	     16	   3496	  27676	   6c1c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:26:13 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24164	     16	   3496	  27676	   6c1c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+01:31:20 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24180	     16	   3500	  27696	   6c30	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:39:56 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24252	     16	   3500	  27768	   6c78	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:42:01 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24120	     16	   3496	  27632	   6bf0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:48:40 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24120	     16	   3496	  27632	   6bf0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+20:43:00 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24108	     16	   3496	  27620	   6be4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+20:45:04 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24108	     16	   3496	  27620	   6be4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+21:25:32 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  24120	     16	   3496	  27632	   6bf0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+21:26:24 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24120	     16	   3496	  27632	   6bf0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+21:38:57 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  24120	     16	   3496	  27632	   6bf0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+00:23:44 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  23900	     16	   3460	  27376	   6af0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:06:06 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:23:
+../../Core/Inc/tcan.h: In function 'TCAN4550_WriteReg':
+../../Core/Inc/tcan.h:22:27: error: 'hspi3' undeclared (first use in this function)
+   22 |         HAL_SPI_Transmit(&hspi3, spi_buf, 8, 100);
+      |                           ^~~~~
+../../Core/Inc/tcan.h:22:27: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/tcan.h: In function 'TCAN4550_ReadReg':
+../../Core/Inc/tcan.h:44:23: error: 'hspi3' undeclared (first use in this function)
+   44 |     HAL_SPI_Transmit(&hspi3, tx_buf, 4, 10);
+      |                       ^~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:06:57 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:23:
+../../Core/Inc/tcan.h: In function 'TCAN4550_WriteReg':
+../../Core/Inc/tcan.h:22:27: error: 'hspi3' undeclared (first use in this function)
+   22 |         HAL_SPI_Transmit(&hspi3, spi_buf, 8, 100);
+      |                           ^~~~~
+../../Core/Inc/tcan.h:22:27: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/tcan.h: In function 'TCAN4550_ReadReg':
+../../Core/Inc/tcan.h:44:23: error: 'hspi3' undeclared (first use in this function)
+   44 |     HAL_SPI_Transmit(&hspi3, tx_buf, 4, 10);
+      |                       ^~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:08:07 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/stm32wl3x_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32wl3x_hal_msp.d" -MT"Application/User/Core/stm32wl3x_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/stm32wl3x_hal_msp.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/stm32wl3x_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32wl3x_it.d" -MT"Application/User/Core/stm32wl3x_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/stm32wl3x_it.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:23:
+../../Core/Inc/tcan.h:5:10: fatal error: main.c: No such file or directory
+    5 | #include "main.c"
+      |          ^~~~~~~~
+compilation terminated.
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:08:16 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_hal_msp.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:89: multiple definition of `hadc1'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:89: first defined here
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_hal_msp.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:90: multiple definition of `hspi3'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:90: first defined here
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_hal_msp.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:91: multiple definition of `MRSUBG_RadioInitStruct'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:91: first defined here
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_hal_msp.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:92: multiple definition of `MRSUBG_PacketSettingsStruct'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:92: first defined here
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_it.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:89: multiple definition of `hadc1'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:89: first defined here
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_it.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:90: multiple definition of `hspi3'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:90: first defined here
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_it.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:91: multiple definition of `MRSUBG_RadioInitStruct'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:91: first defined here
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/stm32wl3x_it.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:92: multiple definition of `MRSUBG_PacketSettingsStruct'; ./Application/User/Core/main.o:C:/repos/ece480/embedded/VehicleCANGateway_Workspace/VehicleCANGateway/Debug/../../Core/Inc/main.h:92: first defined here
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: VehicleCANGateway.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:15:04 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/stm32wl3x_hal_msp.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32wl3x_hal_msp.d" -MT"Application/User/Core/stm32wl3x_hal_msp.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/stm32wl3x_hal_msp.o"
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/stm32wl3x_it.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/stm32wl3x_it.d" -MT"Application/User/Core/stm32wl3x_it.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/stm32wl3x_it.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:23:
+../../Core/Inc/tcan.h: In function 'TCAN4550_WriteReg':
+../../Core/Inc/tcan.h:22:27: error: 'hspi3' undeclared (first use in this function)
+   22 |         HAL_SPI_Transmit(&hspi3, spi_buf, 8, 100);
+      |                           ^~~~~
+../../Core/Inc/tcan.h:22:27: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/tcan.h: In function 'TCAN4550_ReadReg':
+../../Core/Inc/tcan.h:44:23: error: 'hspi3' undeclared (first use in this function)
+   44 |     HAL_SPI_Transmit(&hspi3, tx_buf, 4, 10);
+      |                       ^~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:16:19 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  21712	     16	   3456	  25184	   6260	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:16:32 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21712	     16	   3456	  25184	   6260	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+01:20:29 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:23:
+../../Core/Inc/tcan.h:130:1: error: expected identifier or '(' before '}' token
+  130 | }
+      | ^
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:21:12 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  21868	     16	   3456	  25340	   62fc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:21:20 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21868	     16	   3456	  25340	   62fc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+01:21:34 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21868	     16	   3456	  25340	   62fc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 

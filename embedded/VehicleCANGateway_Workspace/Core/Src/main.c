@@ -45,7 +45,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-
+SPI_HandleTypeDef hspi3;
 SMRSubGConfig_t MRSUBG_RadioInitStruct;
 MRSubG_802_15_4_PcktFields_t MRSUBG_PacketSettingsStruct;
 
@@ -57,7 +57,7 @@ MRSubG_802_15_4_PcktFields_t MRSUBG_PacketSettingsStruct;
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
-// static void MX_SPI3_Init(void);
+static void MX_SPI3_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_MRSUBG_Init(void);
 float Broadcast_Temperature(void);
@@ -71,56 +71,6 @@ float Broadcast_Temperature(void);
 /* USER CODE END 0 */
 
 int loop_count = 0; // Variable to watch in the debugger
-
-//uint8_t counter;
-//char buffer[40];
-
-uint8_t myData[] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
-//size_t num_elements = sizeof(myData) / sizeof(myData[0]);
-size_t num_elements = 8;
-uint32_t my_id1 = 0;
-uint32_t my_id2 = 0;
-uint32_t my_id3 = 0;
-uint32_t req = 0;
-
-uint32_t check10C8 = 0;
-uint32_t check101C = 0;
-uint32_t check0800 = 0;
-uint32_t check1018 = 0;
-uint32_t check1040 = 0;
-uint32_t check0000 = 0;
-uint32_t waa = 0;
-uint32_t check0824 = 0;
-uint32_t check0820 = 0;
-uint32_t err = 0;
-uint32_t check000C = 0;
-uint32_t verify_spi;
-
-uint32_t check0808 = 0;
-uint32_t check0008 = 0;
-uint32_t check1000 = 0;
-uint32_t check10BC = 0;
-uint32_t check100C = 0;
-
-uint32_t check10D4 = 0;
-uint32_t check1044 = 0;
-uint32_t check10D0 = 0;
-uint32_t check10D8 = 0;
-
-uint32_t check1010 = 0;
-
-uint32_t check1050 = 0;
-uint32_t check10E0 = 0;
-uint32_t check10F4 = 0;
-
-uint32_t ram_check = 0;
-
-uint32_t rawValue = 0;
-uint32_t celsius = 0;
-//float global_celsius = 0.0f;
-uint32_t adc_raw = 0;
-
-uint32_t check10CC = 0;
 
 
 /**
@@ -159,115 +109,18 @@ int main(void)
   MX_ADC1_Init();
   MX_USART1_UART_Init();
   MX_MRSUBG_Init();
-  /* USER CODE BEGIN 2 */
 
-  /* USER CODE END 2 */
-
-//  TCAN4550_Enable_Normal_Mode();
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  // Put the transceiver in Transmit Mode
-//  HAL_Delay(100);
-
-  TCAN4550_WriteReg(0x0800, 0xC8000084);
-  HAL_Delay(10); // Wait for reset to toggle
-  // Disable Watchdog (Bit 3 = 0) and set to Normal Mode (Bits 7:6 = 10)
-  TCAN4550_WriteReg(0x0800, 0xC8000080); // watchdog times out after 60ms by default, so make sure to config on startup
-  HAL_Delay(100);
-
-  TCAN4550_WriteReg(0x0820, 0xFFFFFFFF);
-  HAL_Delay(5);
-
-  TCAN4550_WriteReg(0x000C, 0xFFFFFFFF);
-  HAL_Delay(5);
-
-  TCAN4550_WriteReg(0x1018, 0x00000003);
-  TCAN4550_WriteReg(0x101C, 0x00011F07);
-
-  TCAN4550_WriteReg(0x100C, 0x00000701);
-
-  // TX Buffer Configuration: 1 element, starts at offset 0x0270
-  // (Matches 0x8270 in memory)
-  TCAN4550_WriteReg(0x10C0, 0x01000270);
-  // TX Element Size: 64 Bytes (0x7)
-  TCAN4550_WriteReg(0x10C8, 0x00000007);
-
-  // RX FIFO 0 Configuration: 4 elements, starts at offset 0x0010
-  TCAN4550_WriteReg(0x10A0, 0x02040010);
-  // RX Element Size: FIFO0 = 64 Bytes (0x7)
-  TCAN4550_WriteReg(0x10BC, 0x00000077);
-
-  TCAN4550_WriteReg(0x10E8, 0x00000000);
-
-
-  // 1. Enable Test Mode (Bit 7 of CCCR/1018)
-  TCAN4550_WriteReg(0x1018, 0x00000083);
-
-  // 2. Enable Internal Loopback (Bit 4 of TEST/1010)
-  // This connects the Transmit path directly to the Receive path internally
-  TCAN4550_WriteReg(0x1010, 0x00000010);
-
-  // 3. Exit INIT Mode
-  TCAN4550_WriteReg(0x1018, 0x00000080); // Keep TEST bit set, but clear INIT/CCE
-
-//  TCAN4550_WriteReg(0x1018, 0x00000000);
-
-
-
-  TCAN4550_WriteReg(0x10D0, 0x00000001);
-  check10D0 = TCAN4550_ReadReg(0x10D0);
-  check1018 = TCAN4550_ReadReg(0x1018);
+  TCAN4550_Init(CAN1_SPI_CS_Pin);
 
   while (1)
   {
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
-//	  TCAN4550_WriteReg(0x0808, 0xABCDEF12);
-//	  uint16_t len=sprintf(buffer,"Counter = %d\r\n",++counter);
 
-	  // 1. Load the TX Buffer at the CORRECT offset (0x8270 based on your 10C0 config)
-	  TCAN4550_WriteReg(0x8270, 0x448C0000); // Header 1
-	  TCAN4550_WriteReg(0x8274, 0x00080000); // Header 2 (DLC 8)
-	  TCAN4550_WriteReg(0x8278, 0x4C4C4548); // Data "HELL"
-	  TCAN4550_WriteReg(0x827C, 0x2121214F); // Data "O!!!"
-
-	  // 2. Request Transmission (Use 10D0, NOT 10D4)
-	  TCAN4550_WriteReg(0x10D0, 0x00000001);
-	  check10D0 = TCAN4550_ReadReg(0x10D0);
-
-	  HAL_Delay(10); // Give it a moment to send
-
-	  // 3. VERIFICATION READS
-	  check10D8 = TCAN4550_ReadReg(0x10D8); // 1 = SUCCESS (Acknowledged by another node)
-	  check10CC = TCAN4550_ReadReg(0x10CC); // 1 = PENDING (Stuck, no one is listening)
-	  check1044 = TCAN4550_ReadReg(0x1044); // 0x703 = ACK ERROR (Hardware works, but no receiver)
-
-	  // Optional: Clear the "Transmission Occurred" flag so you can see the next one
-	  // Actually, 10D8 is cleared by the next 10D0 write, but it's good to keep track.
+	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
 
 	  HAL_Delay(1000); // Send once per second
-//	  check1044 = TCAN4550_ReadReg(0x1044);
-//
-// 	  check1018 = TCAN4550_ReadReg(0x1018);
-// 	  check1050 = TCAN4550_ReadReg(0x1050);
-// //
-//	  check10E0 = TCAN4550_ReadReg(0x10E0);
-//	  check10F4 = TCAN4550_ReadReg(0x10F4);
 
-	  // 1. Write the ID to the TX Buffer (Offset 0x0080 + Base 0x8000)
-//	  TCAN4550_WriteReg(0x8080, (0x123 << 18));
-//
-//	  // 2. Read it back IMMEDIATELY
-//	  ram_check = TCAN4550_ReadReg(0x8080);
-//
-//	  // 3. Check the Status again
-//	  check10D0 = TCAN4550_ReadReg(0x10D0);
-
-//	  HAL_Delay(500);
-//	  my_id2 = TCAN4550_ReadReg(0x0000);
-//	  my_id1 = TCAN4550_ReadReg(0x0808);
-    /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
 }
@@ -362,6 +215,47 @@ static void MX_MRSUBG_Init(void)
   /* USER CODE BEGIN MRSUBG_Init 2 */
 
   /* USER CODE END MRSUBG_Init 2 */
+
+}
+
+/**
+  * @brief SPI3 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_SPI3_Init(void)
+{
+
+  /* USER CODE BEGIN SPI3_Init 0 */
+
+  /* USER CODE END SPI3_Init 0 */
+
+  /* USER CODE BEGIN SPI3_Init 1 */
+
+  /* USER CODE END SPI3_Init 1 */
+  /* SPI3 parameter configuration*/
+  hspi3.Instance = SPI3;
+  hspi3.Init.Mode = SPI_MODE_MASTER;
+  hspi3.Init.Direction = SPI_DIRECTION_2LINES;
+  hspi3.Init.DataSize = SPI_DATASIZE_8BIT;
+  hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
+  hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
+  hspi3.Init.NSS = SPI_NSS_SOFT;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+  hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
+  hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
+  hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
+//   hspi3.Init.CRCPolynomial = 7;
+//   hspi3.Init.CRCLength = SPI_CRC_LENGTH_DATASIZE;
+//   hspi3.Init.NSSPMode = SPI_NSS_PULSE_ENABLE;
+  hspi3.Init.NSSPMode = SPI_NSS_PULSE_DISABLE;
+  if (HAL_SPI_Init(&hspi3) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN SPI3_Init 2 */
+
+  /* USER CODE END SPI3_Init 2 */
 
 }
 
