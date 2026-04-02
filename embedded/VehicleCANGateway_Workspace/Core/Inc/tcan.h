@@ -42,6 +42,8 @@ uint32_t TCAN4550_ReadReg(uint16_t address, uint16_t chip_select) {
     tx_buf[2] = (uint8_t)(address & 0xFF);
     tx_buf[3] = 0x01; // 1 word
 
+    //kinda hard coded for port number
+
     HAL_GPIO_WritePin(GPIOA, chip_select, GPIO_PIN_RESET);
     HAL_SPI_Transmit(&hspi3, tx_buf, 4, 10);
     // Some TCAN chips need a tiny pause between header and data

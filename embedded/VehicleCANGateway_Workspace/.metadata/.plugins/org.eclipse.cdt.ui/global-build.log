@@ -4537,3 +4537,339 @@ arm-none-eabi-size  VehicleCANGateway.elf
   21868	     16	   3456	  25340	   62fc	VehicleCANGateway.elf
 Finished building: default.size.stdout
  
+01:41:23 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/easytimer.h:5:1: error: unknown type name 'class'
+    5 | class EasyTimer{
+      | ^~~~~
+../../Core/Inc/easytimer.h:5:16: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+    5 | class EasyTimer{
+      |                ^
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:120:18: error: unknown type name 'EasyTimer'
+  120 |           static EasyTimer ATCCR_10_timer(200);
+      |                  ^~~~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:120:43: error: expected declaration specifiers or '...' before numeric constant
+  120 |           static EasyTimer ATCCR_10_timer(200);
+      |                                           ^~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:121:23: error: 'ATCCR_10_timer' undeclared (first use in this function)
+  121 |                   if (ATCCR_10_timer.isup()){
+      |                       ^~~~~~~~~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:121:23: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:45:27 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/easytimer.h:11:5: error: unknown type name 'bool'
+   11 |     bool enabled_;            // Enabled state
+      |     ^~~~
+../../Core/Inc/easytimer.h:1:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+  +++ |+#include <stdbool.h>
+    1 | #ifndef TIMER_H
+../../Core/Inc/easytimer.h:18:1: error: unknown type name 'bool'
+   18 | bool EasyTimer_Check(EasyTimer* timer);
+      | ^~~~
+../../Core/Inc/easytimer.h:18:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+../../Core/Inc/easytimer.h:26:1: error: unknown type name 'bool'
+   26 | bool EasyTimer_IsEnabled(EasyTimer* timer);
+      | ^~~~
+../../Core/Inc/easytimer.h:26:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:120:43: error: expected declaration specifiers or '...' before numeric constant
+  120 |           static EasyTimer ATCCR_10_timer(200);
+      |                                           ^~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:121:23: error: 'ATCCR_10_timer' undeclared (first use in this function)
+  121 |                   if (ATCCR_10_timer.isup()){
+      |                       ^~~~~~~~~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:121:23: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:45:39 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:120:43: error: expected declaration specifiers or '...' before numeric constant
+  120 |           static EasyTimer ATCCR_10_timer(200);
+      |                                           ^~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:121:23: error: 'ATCCR_10_timer' undeclared (first use in this function)
+  121 |                   if (ATCCR_10_timer.isup()){
+      |                       ^~~~~~~~~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:121:23: note: each undeclared identifier is reported only once for each function it appears in
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:47:53 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/main.o: in function `main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): undefined reference to `EasyTimer_Check'
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: (EasyTimer_Check): Unknown destination type (ARM/Thumb) in ./Application/User/Core/main.o
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): dangerous relocation: unsupported relocation
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: VehicleCANGateway.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:49:01 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/main.o: in function `main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): undefined reference to `EasyTimer_Check'
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: (EasyTimer_Check): Unknown destination type (ARM/Thumb) in ./Application/User/Core/main.o
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): dangerous relocation: unsupported relocation
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: VehicleCANGateway.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:50:04 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/main.o: in function `main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): undefined reference to `EasyTimer_Check'
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: (EasyTimer_Check): Unknown destination type (ARM/Thumb) in ./Application/User/Core/main.o
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): dangerous relocation: unsupported relocation
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: VehicleCANGateway.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:51:38 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: ./Application/User/Core/main.o: in function `main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): undefined reference to `EasyTimer_Check'
+C:/ST/STM32CubeIDE_2.1.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.14.3.rel1.win32_1.0.100.202602081740/tools/bin/../lib/gcc/arm-none-eabi/14.3.1/../../../../arm-none-eabi/bin/ld.exe: (EasyTimer_Check): Unknown destination type (ARM/Thumb) in ./Application/User/Core/main.o
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:(.text.main+0x38): dangerous relocation: unsupported relocation
+collect2.exe: error: ld returned 1 exit status
+make: *** [makefile:65: VehicleCANGateway.elf] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:01:22 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/easytimer.h:10:1: error: unknown type name 'bool'
+   10 | bool Timer_HasElapsed(EasyTimer_t *timer) {
+      | ^~~~
+../../Core/Inc/easytimer.h:1:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+  +++ |+#include <stdbool.h>
+    1 | #ifndef TIMER_H
+../../Core/Inc/easytimer.h: In function 'Timer_HasElapsed':
+../../Core/Inc/easytimer.h:13:16: error: 'true' undeclared (first use in this function)
+   13 |         return true;
+      |                ^~~~
+../../Core/Inc/easytimer.h:13:16: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+../../Core/Inc/easytimer.h:13:16: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/easytimer.h:15:12: error: 'false' undeclared (first use in this function)
+   15 |     return false;
+      |            ^~~~~
+../../Core/Inc/easytimer.h:15:12: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:123:15: error: implicit declaration of function 'EasyTimer_Check' [-Wimplicit-function-declaration]
+  123 |           if (EasyTimer_Check(&TestTimer)) {
+      |               ^~~~~~~~~~~~~~~
+../../Core/Inc/easytimer.h: In function 'Timer_HasElapsed':
+../../Core/Inc/easytimer.h:16:1: warning: control reaches end of non-void function [-Wreturn-type]
+   16 | }
+      | ^
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:02:55 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/easytimer.h:10:1: error: unknown type name 'bool'
+   10 | bool Timer_HasElapsed(EasyTimer_t *timer) {
+      | ^~~~
+../../Core/Inc/easytimer.h:1:1: note: 'bool' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+  +++ |+#include <stdbool.h>
+    1 | #ifndef TIMER_H
+../../Core/Inc/easytimer.h: In function 'Timer_HasElapsed':
+../../Core/Inc/easytimer.h:13:16: error: 'true' undeclared (first use in this function)
+   13 |         return true;
+      |                ^~~~
+../../Core/Inc/easytimer.h:13:16: note: 'true' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+../../Core/Inc/easytimer.h:13:16: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/easytimer.h:15:12: error: 'false' undeclared (first use in this function)
+   15 |     return false;
+      |            ^~~~~
+../../Core/Inc/easytimer.h:15:12: note: 'false' is defined in header '<stdbool.h>'; this is probably fixable by adding '#include <stdbool.h>'
+../../Core/Inc/easytimer.h:16:1: warning: control reaches end of non-void function [-Wreturn-type]
+   16 | }
+      | ^
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:03:14 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  21936	     16	   3456	  25408	   6340	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:03:21 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  21936	     16	   3456	  25408	   6340	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+02:28:28 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:22:
+../../Core/Inc/rs485.h:111:84: error: expected declaration specifiers or '...' before ')' token
+  111 | void Send_Simple_Packet(uint8_t byte1, uint8_t byte2, uint8_t byte3, uint8_t byte4,) {
+      |                                                                                    ^
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:131:19: error: implicit declaration of function 'Send_Simple_Packet' [-Wimplicit-function-declaration]
+  131 |                   Send_Simple_Packet(0x00, 0x01, 0x02, 0x03);
+      |                   ^~~~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:29:51 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:22:
+../../Core/Inc/rs485.h:111:84: error: expected declaration specifiers or '...' before ')' token
+  111 | void Send_Simple_Packet(uint8_t byte1, uint8_t byte2, uint8_t byte3, uint8_t byte4,) {
+      |                                                                                    ^
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:131:19: error: implicit declaration of function 'Send_Simple_Packet' [-Wimplicit-function-declaration]
+  131 |                   Send_Simple_Packet(0x00, 0x01, 0x02, 0x03);
+      |                   ^~~~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:30:22 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22596	     16	   3456	  26068	   65d4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:32:04 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22596	     16	   3456	  26068	   65d4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+02:34:31 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22596	     16	   3456	  26068	   65d4	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:45:30 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22568	     20	   3456	  26044	   65bc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:45:42 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22568	     20	   3456	  26044	   65bc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+02:49:04 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     24	   3456	  26060	   65cc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:50:38 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     24	   3456	  26060	   65cc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+03:19:55 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     24	   3456	  26060	   65cc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+03:24:09 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     24	   3456	  26060	   65cc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+03:25:24 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22580	     24	   3456	  26060	   65cc	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 

@@ -3387,3 +3387,6 @@ COM4
 
 !ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-04-02 00:23:42.266
 !MESSAGE port: COM4
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2026-04-02 02:01:23.755
+!MESSAGE Won't launch debug session since we failed to locate the binary.

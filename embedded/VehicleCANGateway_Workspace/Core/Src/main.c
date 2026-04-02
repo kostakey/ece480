@@ -21,6 +21,7 @@
 #include "stdio.h"
 #include "rs485.h"
 #include "tcan.h"
+#include "easytimer.h"
 //#include "temp_sensor.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -48,6 +49,7 @@ ADC_HandleTypeDef hadc1;
 SPI_HandleTypeDef hspi3;
 SMRSubGConfig_t MRSUBG_RadioInitStruct;
 MRSubG_802_15_4_PcktFields_t MRSUBG_PacketSettingsStruct;
+UART_HandleTypeDef huart1;
 
 /* USER CODE BEGIN PV */
 
@@ -59,6 +61,7 @@ void PeriphCommonClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI3_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_USART1_UART_Init(void);
 static void MX_MRSUBG_Init(void);
 float Broadcast_Temperature(void);
 /* USER CODE BEGIN PFP */
@@ -71,7 +74,9 @@ float Broadcast_Temperature(void);
 /* USER CODE END 0 */
 
 int loop_count = 0; // Variable to watch in the debugger
+uint8_t data[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
 
+//uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
 /**
   * @brief  The application entry point.
@@ -112,18 +117,29 @@ int main(void)
 
   TCAN4550_Init(CAN1_SPI_CS_Pin);
 
+  EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
+  EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
+
   while (1)
   {
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
 
-	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
+	  if (Timer_HasElapsed(&TestTimer)) {
+	      TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
+	  }
 
-	  HAL_Delay(1000); // Send once per second
+	  if (Timer_HasElapsed(&TestTimer1)) {
+		  RS485_Send_Test_Message(data);
+	  }
+
+
+//	  HAL_Delay(1000); // Send once per second
 
   }
   /* USER CODE END 3 */
 }
+
 
 /**
   * @brief System Clock Configuration
@@ -173,6 +189,56 @@ void PeriphCommonClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief USART1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_USART1_UART_Init(void)
+{
+
+  /* USER CODE BEGIN USART1_Init 0 */
+
+  /* USER CODE END USART1_Init 0 */
+
+  /* USER CODE BEGIN USART1_Init 1 */
+
+  /* USER CODE END USART1_Init 1 */
+  huart1.Instance = USART1;
+//  huart1.Init.BaudRate = 115200;
+  huart1.Init.BaudRate = 9600;
+  huart1.Init.WordLength = UART_WORDLENGTH_8B;
+  huart1.Init.StopBits = UART_STOPBITS_1;
+//  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Parity = UART_PARITY_EVEN;
+  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huart1.Init.ClockPrescaler = UART_PRESCALER_DIV1;
+  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetTxFifoThreshold(&huart1, UART_TXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_SetRxFifoThreshold(&huart1, UART_RXFIFO_THRESHOLD_1_8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_UARTEx_DisableFifoMode(&huart1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN USART1_Init 2 */
+
+  /* USER CODE END USART1_Init 2 */
+
 }
 
 /**
