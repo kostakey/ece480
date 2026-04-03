@@ -47,8 +47,10 @@ Application/User/Core/main.o: \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_gpio.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_pwr.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_dma.h \
- ../../Core/Inc/rs485.h ../../Core/Inc/main.h ../../Core/Inc/tcan.h \
- ../../Core/Inc/easytimer.h
+ ../../Core/Inc/easytimer.h ../../Core/Inc/rs485.h ../../Core/Inc/main.h \
+ ../../Core/Inc/rs485_send.h ../../Core/Inc/rs485.h \
+ ../../Core/Inc/easytimer.h ../../Core/Inc/tcan.h \
+ ../../Core/Inc/can_send.h ../../Core/Inc/tcan.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal.h:
 ../../Core/Inc/stm32wl3x_hal_conf.h:
@@ -96,7 +98,12 @@ Application/User/Core/main.o: \
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_gpio.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_pwr.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_dma.h:
+../../Core/Inc/easytimer.h:
 ../../Core/Inc/rs485.h:
 ../../Core/Inc/main.h:
-../../Core/Inc/tcan.h:
+../../Core/Inc/rs485_send.h:
+../../Core/Inc/rs485.h:
 ../../Core/Inc/easytimer.h:
+../../Core/Inc/tcan.h:
+../../Core/Inc/can_send.h:
+../../Core/Inc/tcan.h:

@@ -78,7 +78,7 @@ float Broadcast_Temperature(void);
 /* USER CODE END 0 */
 
 int loop_count = 0; // Variable to watch in the debugger
-//uint8_t data[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
+uint8_t data[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
@@ -129,9 +129,8 @@ int main(void)
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
 
-	  CAN1_Online(CAN1_SPI_CS_Pin); // for sending
-	  // Do CAN2 also
-	  RS485_Online(); // for sending
+	  CAN1_Online(CAN1_SPI_CS_Pin);
+	  RS485_Online();
 
   }
   /* USER CODE END 3 */

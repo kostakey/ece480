@@ -129,9 +129,8 @@ int main(void)
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
 
-	  CAN1_Online(CAN1_SPI_CS_Pin); // for sending
-	  // Do CAN2 also
-	  RS485_Online(); // for sending
+	  CAN1_Online(CAN1_SPI_CS_Pin);
+	  RS485_Online();
 
   }
   /* USER CODE END 3 */

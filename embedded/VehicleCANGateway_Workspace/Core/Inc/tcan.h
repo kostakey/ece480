@@ -5,6 +5,12 @@
 
 extern SPI_HandleTypeDef hspi3;
 
+typedef struct {
+    uint32_t id;      // CAN ID
+    uint8_t  len;     // DLC (0-8)
+    uint8_t  data[8]; // Payload
+} TCAN_Message;
+
 void TCAN4550_WriteReg(uint16_t address, uint32_t data, uint16_t chip_select) {
 	uint8_t spi_buf[8];
 
@@ -126,6 +132,31 @@ void TCAN4550_Send_Test_Message(uint16_t chip_select) {
 
 	TCAN4550_WriteReg(0x10D0, 0x00000001, chip_select); // send it
 
+}
+
+void TCAN4550_Write_Message(TCAN_Message *msg, uint16_t chip_select) {
+    uint32_t headerW0 = 0;
+    uint32_t headerW1 = 0;
+
+    // 1. Prepare Word 0: Standard ID
+    // Shift ID 18 bits left (for Standard ID) and ensure XTD (bit 30) is 0
+    headerW0 = (msg->id & 0x7FF) << 18;
+    TCAN4550_WriteReg(0x8270, headerW0, chip_select);
+
+    // 2. Prepare Word 1: DLC
+    // Bits 19:16 are DLC. Ensure FDF (bit 21) is 0 for CAN 2.0
+    headerW1 = (uint32_t)(msg->len & 0x0F) << 16;
+    TCAN4550_WriteReg(0x8274, headerW1, chip_select);
+
+    // 3. Prepare Data Bytes (Big Endian pack for "HELLO!!!")
+    uint32_t dataW2 = (msg->data[3] << 24) | (msg->data[2] << 16) | (msg->data[1] << 8) | msg->data[0];
+    uint32_t dataW3 = (msg->data[7] << 24) | (msg->data[6] << 16) | (msg->data[5] << 8) | msg->data[4];
+
+    TCAN4550_WriteReg(0x8278, dataW2, chip_select);
+    TCAN4550_WriteReg(0x827C, dataW3, chip_select);
+
+    // 4. Request Transmission (Add to TX Request Pending)
+    TCAN4550_WriteReg(0x10D0, 0x00000001, chip_select);
 }
 
 #endif
