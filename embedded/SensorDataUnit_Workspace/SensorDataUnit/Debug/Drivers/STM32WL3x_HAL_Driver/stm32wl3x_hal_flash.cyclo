@@ -1,0 +1,9 @@
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:143:19:HAL_FLASH_Program	4
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:203:19:HAL_FLASH_Program_IT	4
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:263:6:HAL_FLASH_IRQHandler	11
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:366:13:HAL_FLASH_EndOfOperationCallback	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:384:13:HAL_FLASH_OperationErrorCallback	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:419:10:HAL_FLASH_GetError	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:443:19:FLASH_WaitForLastOperation	5
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:481:13:FLASH_Program_Word	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash.c:503:13:FLASH_Program_Burst	1

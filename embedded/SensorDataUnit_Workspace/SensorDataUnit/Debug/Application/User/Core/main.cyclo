@@ -1,0 +1,14 @@
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_bus.h:220:22:LL_AHB1_GRP1_EnableClock	1
+../../Core/Inc/easytimer.h:12:6:Timer_HasElapsed	2
+../../Core/Inc/rs485.h:39:6:RS485_Write_Message	4
+../../Core/Inc/rs485_send.h:9:6:Send_Test_RS485_Message	1
+../../Core/Inc/rs485_send.h:29:6:RS485_Online	2
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:87:5:main	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:141:6:SystemClock_Config	3
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:171:6:PeriphCommonClock_Config	2
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:192:13:MX_USART1_UART_Init	5
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:242:13:MX_MRSUBG_Init	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:285:13:MX_SPI3_Init	2
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:326:13:MX_ADC1_Init	3
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:397:13:MX_GPIO_Init	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:472:6:Error_Handler	1

@@ -1752,10 +1752,11 @@ int main(void)
 10040c20:	4b04      	ldr	r3, [pc, #16]	@ (10040c34 <main+0x44>)
 10040c22:	601a      	str	r2, [r3, #0]
 
-	  CAN1_Online(CAN1_SPI_CS_Pin);
+	  CAN1_Online(CAN1_SPI_CS_Pin); // for sending
 10040c24:	2001      	movs	r0, #1
 10040c26:	f7ff ffcb 	bl	10040bc0 <CAN1_Online>
-	  RS485_Online();
+	  // Do CAN2 also
+	  RS485_Online(); // for sending
 10040c2a:	f7ff fde5 	bl	100407f8 <RS485_Online>
 	  loop_count++; // Increment the counter
 10040c2e:	46c0      	nop			@ (mov r8, r8)

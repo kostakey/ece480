@@ -1,0 +1,8 @@
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:108:19:HAL_FLASHEx_Erase	5
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:166:19:HAL_FLASHEx_Erase_IT	4
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:222:19:HAL_FLASHEx_OTPWrite	2
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:256:19:HAL_FLASHEx_OTPWrite_IT	2
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:293:19:HAL_FLASHEx_PageProtection	6
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:351:13:FLASH_MassErase	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:366:6:FLASH_PageErase	1
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Drivers/STM32WL3x_HAL_Driver/Src/stm32wl3x_hal_flash_ex.c:386:13:FLASH_Program_OTPWord	1
