@@ -5,11 +5,19 @@
 
 extern UART_HandleTypeDef huart1;
 
+// Define the expected data length based on your Send function (6 bytes)
+#define RS485_DATA_LEN 6
+
 typedef struct {
     uint8_t start_byte; // e.g., 0xAA
     uint8_t data[6];    // 6 bytes of payload
     uint8_t checksum;   // Computed XOR byte
 } RS485_Message;
+
+typedef enum {
+    STATE_WAIT_START,
+    STATE_COLLECT_DATA
+} RxState_t;
 
 //void RS485_Send(uint8_t *pData, uint16_t Size) {
 //    // 1. Enable Driver (Disable Receiver to avoid echo)
@@ -65,6 +73,37 @@ void RS485_Write_Message(RS485_Message *msg, UART_HandleTypeDef *huart) {
     // 6. Return to Receive Mode
     HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+}
+
+int RS485_Read_Message(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
+    static RxState_t state = STATE_WAIT_START;
+    static uint8_t data_index = 0;
+    uint8_t rx_byte;
+
+    // Check if a byte is available in the UART hardware (Non-blocking check)
+    // We use a timeout of 0 to ensure we don't stall the main loop
+    if (HAL_UART_Receive(huart, &rx_byte, 1, 0) == HAL_OK) {
+
+        switch (state) {
+            case STATE_WAIT_START:
+                if (rx_byte == 0xAA) {
+                    out_msg->start_byte = 0xAA;
+                    data_index = 0;
+                    state = STATE_COLLECT_DATA;
+                }
+                break;
+
+            case STATE_COLLECT_DATA:
+                out_msg->data[data_index++] = rx_byte;
+
+                if (data_index >= RS485_DATA_LEN) {
+                    state = STATE_WAIT_START; // Reset for next message
+                    return 1; // Success! Full message received
+                }
+                break;
+        }
+    }
+    return 0; // Message not yet complete
 }
 
 //void RS485_Send_Test_Message(uint8_t *pData) {

@@ -21,7 +21,6 @@
 #include "stdio.h"
 #include "easytimer.h"
 
-#include "rs485.h"
 #include "rs485_send.h"
 
 //#include "temp_sensor.h"

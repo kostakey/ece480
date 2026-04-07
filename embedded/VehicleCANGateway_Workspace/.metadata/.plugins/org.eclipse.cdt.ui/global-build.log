@@ -5150,3 +5150,316 @@ arm-none-eabi-size  VehicleCANGateway.elf
   22940	     32	   3460	  26432	   6740	VehicleCANGateway.elf
 Finished building: default.size.stdout
  
+01:45:57 **** Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:10: fatal error: rs485_send.h: No such file or directory
+   25 | #include "rs485_send.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:46:06 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:10: fatal error: rs485_send.h: No such file or directory
+   25 | #include "rs485_send.h"
+      |          ^~~~~~~~~~~~~~
+compilation terminated.
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:52:00 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Process_Incoming':
+../../Core/Inc/rs485_receive.h:54:9: error: implicit declaration of function 'RS485_Receive_Message'; did you mean 'RS485_Write_Message'? [-Wimplicit-function-declaration]
+   54 |     if (RS485_Receive_Message(&huart1, &incoming)) {
+      |         ^~~~~~~~~~~~~~~~~~~~~
+      |         RS485_Write_Message
+../../Core/Inc/rs485_receive.h:58:18: warning: unused variable 'rx_travelFR' [-Wunused-variable]
+   58 |         uint16_t rx_travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:57:18: warning: unused variable 'rx_travelFL' [-Wunused-variable]
+   57 |         uint16_t rx_travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:56:18: warning: unused variable 'rx_bias' [-Wunused-variable]
+   56 |         uint16_t rx_bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |                  ^~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:134:11: error: too few arguments to function 'RS485_Online'
+  134 |           RS485_Online(); // for sending
+      |           ^~~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:20:5: note: declared here
+   20 | int RS485_Online(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
+      |     ^~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:54:21 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Process_Incoming':
+../../Core/Inc/rs485_receive.h:54:9: error: implicit declaration of function 'RS485_Receive_Message'; did you mean 'RS485_Write_Message'? [-Wimplicit-function-declaration]
+   54 |     if (RS485_Receive_Message(&huart1, &incoming)) {
+      |         ^~~~~~~~~~~~~~~~~~~~~
+      |         RS485_Write_Message
+../../Core/Inc/rs485_receive.h:58:18: warning: unused variable 'rx_travelFR' [-Wunused-variable]
+   58 |         uint16_t rx_travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:57:18: warning: unused variable 'rx_travelFL' [-Wunused-variable]
+   57 |         uint16_t rx_travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:56:18: warning: unused variable 'rx_bias' [-Wunused-variable]
+   56 |         uint16_t rx_bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |                  ^~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:136:47: error: 'my_rx_msg' undeclared (first use in this function)
+  136 |           if (RS485_Receive_Message(&huart1, &my_rx_msg))
+      |                                               ^~~~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:136:47: note: each undeclared identifier is reported only once for each function it appears in
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:141:34: warning: unused variable 'rx_travelFR' [-Wunused-variable]
+  141 |                         uint16_t rx_travelFR = (uint16_t)(my_rx_msg.data[4] | (my_rx_msg.data[5] << 8));
+      |                                  ^~~~~~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:140:34: warning: unused variable 'rx_travelFL' [-Wunused-variable]
+  140 |                         uint16_t rx_travelFL = (uint16_t)(my_rx_msg.data[2] | (my_rx_msg.data[3] << 8));
+      |                                  ^~~~~~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:139:34: warning: unused variable 'rx_bias' [-Wunused-variable]
+  139 |                         uint16_t rx_bias     = (uint16_t)(my_rx_msg.data[0] | (my_rx_msg.data[1] << 8));
+      |                                  ^~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:56:45 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Process_Incoming':
+../../Core/Inc/rs485_receive.h:54:9: error: implicit declaration of function 'RS485_Receive_Message'; did you mean 'RS485_Write_Message'? [-Wimplicit-function-declaration]
+   54 |     if (RS485_Receive_Message(&huart1, &incoming)) {
+      |         ^~~~~~~~~~~~~~~~~~~~~
+      |         RS485_Write_Message
+../../Core/Inc/rs485_receive.h:58:18: warning: unused variable 'rx_travelFR' [-Wunused-variable]
+   58 |         uint16_t rx_travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:57:18: warning: unused variable 'rx_travelFL' [-Wunused-variable]
+   57 |         uint16_t rx_travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:56:18: warning: unused variable 'rx_bias' [-Wunused-variable]
+   56 |         uint16_t rx_bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |                  ^~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:59:07 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/rs485.h: In function 'RS485_Read_Message':
+../../Core/Inc/rs485.h:71:12: error: unknown type name 'RxState_t'
+   71 |     static RxState_t state = STATE_WAIT_START;
+      |            ^~~~~~~~~
+../../Core/Inc/rs485.h:71:30: error: 'STATE_WAIT_START' undeclared (first use in this function); did you mean 'STATE_WAIT_ACTIVE2'?
+   71 |     static RxState_t state = STATE_WAIT_START;
+      |                              ^~~~~~~~~~~~~~~~
+      |                              STATE_WAIT_ACTIVE2
+../../Core/Inc/rs485.h:71:30: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/rs485.h:84:29: error: 'STATE_COLLECT_DATA' undeclared (first use in this function)
+   84 |                     state = STATE_COLLECT_DATA;
+      |                             ^~~~~~~~~~~~~~~~~~
+../../Core/Inc/rs485.h:91:35: error: 'RS485_DATA_LEN' undeclared (first use in this function)
+   91 |                 if (data_index >= RS485_DATA_LEN) {
+      |                                   ^~~~~~~~~~~~~~
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Online':
+../../Core/Inc/rs485_receive.h:21:18: warning: unused variable 'rx_travelFR' [-Wunused-variable]
+   21 |         uint16_t rx_travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:20:18: warning: unused variable 'rx_travelFL' [-Wunused-variable]
+   20 |         uint16_t rx_travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:19:18: warning: unused variable 'rx_bias' [-Wunused-variable]
+   19 |         uint16_t rx_bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |                  ^~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:59:35 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/rs485.h: In function 'RS485_Read_Message':
+../../Core/Inc/rs485.h:96:35: error: 'RS485_DATA_LEN' undeclared (first use in this function)
+   96 |                 if (data_index >= RS485_DATA_LEN) {
+      |                                   ^~~~~~~~~~~~~~
+../../Core/Inc/rs485.h:96:35: note: each undeclared identifier is reported only once for each function it appears in
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Online':
+../../Core/Inc/rs485_receive.h:16:18: warning: unused variable 'rx_travelFR' [-Wunused-variable]
+   16 |         uint16_t rx_travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:15:18: warning: unused variable 'rx_travelFL' [-Wunused-variable]
+   15 |         uint16_t rx_travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:14:18: warning: unused variable 'rx_bias' [-Wunused-variable]
+   14 |         uint16_t rx_bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |                  ^~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+01:59:52 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Online':
+../../Core/Inc/rs485_receive.h:13:18: warning: unused variable 'rx_travelFR' [-Wunused-variable]
+   13 |         uint16_t rx_travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:12:18: warning: unused variable 'rx_travelFL' [-Wunused-variable]
+   12 |         uint16_t rx_travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |                  ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:11:18: warning: unused variable 'rx_bias' [-Wunused-variable]
+   11 |         uint16_t rx_bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |                  ^~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22932	     24	   3460	  26416	   6730	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:00:25 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22932	     24	   3460	  26416	   6730	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+02:11:28 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Online':
+../../Core/Inc/rs485_receive.h:13:9: error: 'rx_bias' undeclared (first use in this function)
+   13 |         rx_bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |         ^~~~~~~
+../../Core/Inc/rs485_receive.h:13:9: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/rs485_receive.h:14:9: error: 'rx_travelFL' undeclared (first use in this function)
+   14 |         rx_travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |         ^~~~~~~~~~~
+../../Core/Inc/rs485_receive.h:15:9: error: 'rx_travelFR' undeclared (first use in this function)
+   15 |         rx_travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |         ^~~~~~~~~~~
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:30:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:6:17: warning: 'rx_travelFR' defined but not used [-Wunused-variable]
+    6 | static uint16_t rx_travelFR;
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:5:17: warning: 'rx_travelFL' defined but not used [-Wunused-variable]
+    5 | static uint16_t rx_travelFL;
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:4:17: warning: 'rx_bias' defined but not used [-Wunused-variable]
+    4 | static uint16_t rx_bias;
+      |                 ^~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:13:04 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:25:
+../../Core/Inc/rs485_receive.h: In function 'RS485_Online':
+../../Core/Inc/rs485_receive.h:14:9: error: 'bias' undeclared (first use in this function); did you mean 'rx_bias'?
+   14 |         bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+      |         ^~~~
+      |         rx_bias
+../../Core/Inc/rs485_receive.h:14:9: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/rs485_receive.h:15:9: error: 'travelFL' undeclared (first use in this function); did you mean 'rx_travelFL'?
+   15 |         travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+      |         ^~~~~~~~
+      |         rx_travelFL
+../../Core/Inc/rs485_receive.h:16:9: error: 'travelFR' undeclared (first use in this function); did you mean 'rx_travelFR'?
+   16 |         travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
+      |         ^~~~~~~~
+      |         rx_travelFR
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:28:
+../../Core/Inc/can_send.h: In function 'Send_Test_CAN_Message':
+../../Core/Inc/can_send.h:25:32: error: 'bias' undeclared (first use in this function)
+   25 |     tx_msg.data[2] = (uint8_t)(bias & 0xFF);
+      |                                ^~~~
+../../Core/Inc/can_send.h:27:32: error: 'travelFL' undeclared (first use in this function); did you mean 'rx_travelFL'?
+   27 |     tx_msg.data[4] = (uint8_t)(travelFL & 0xFF);
+      |                                ^~~~~~~~
+      |                                rx_travelFL
+../../Core/Inc/can_send.h:29:32: error: 'travelFR' undeclared (first use in this function); did you mean 'rx_travelFR'?
+   29 |     tx_msg.data[6] = (uint8_t)(travelFR & 0xFF);
+      |                                ^~~~~~~~
+      |                                rx_travelFR
+In file included from ../../Core/Inc/rs485_receive.h:5:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:6:17: warning: 'rx_travelFR' defined but not used [-Wunused-variable]
+    6 | static uint16_t rx_travelFR;
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:5:17: warning: 'rx_travelFL' defined but not used [-Wunused-variable]
+    5 | static uint16_t rx_travelFL;
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:4:17: warning: 'rx_bias' defined but not used [-Wunused-variable]
+    4 | static uint16_t rx_bias;
+      |                 ^~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+02:13:24 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22928	     24	   3468	  26420	   6734	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:16:14 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22928	     24	   3468	  26420	   6734	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:18:42 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22928	     24	   3468	  26420	   6734	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+02:18:55 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22928	     24	   3468	  26420	   6734	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 

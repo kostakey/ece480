@@ -191,3 +191,45 @@ arm-none-eabi-size  SensorDataUnit.elf
   20348	     24	   3456	  23828	   5d14	SensorDataUnit.elf
 Finished building: default.size.stdout
  
+21:04:26 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20348	     24	   3456	  23828	   5d14	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+21:04:57 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20348	     24	   3456	  23828	   5d14	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+21:05:41 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20348	     24	   3456	  23828	   5d14	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+21:06:06 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20348	     24	   3456	  23828	   5d14	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+21:07:17 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20348	     24	   3456	  23828	   5d14	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+21:07:56 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  20348	     24	   3456	  23828	   5d14	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 

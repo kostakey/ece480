@@ -3,17 +3,19 @@
 
 #include "rs485.h"
 #include "easytimer.h"
+#include "sensors.h"
 
+// define all RS485 timers here
 EasyTimer_t RS485Timer1 = {.start_time = 0, .interval = 50};  // 50ms
 
 void Send_Test_RS485_Message(void) {
     RS485_Message rs_msg;
 
-    rs_msg.start_byte = 0xAA;
+    rs_msg.start_byte = 0xAA; // id, used to identify what goes where later on
 
-    uint16_t bias = 12345;
-    uint16_t travelFL = 12345;
-    uint16_t travelFR = 12345;
+    // bias = 12345;
+    // uint16_t travelFL = 12345;
+    // uint16_t travelFR = 12345;
 
     rs_msg.data[0] = (uint8_t)(bias & 0xFF);
     rs_msg.data[1] = (uint8_t)(bias >> 8);

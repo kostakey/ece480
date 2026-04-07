@@ -1,37 +1,26 @@
-#ifndef __SENDRS485_
-#define __SENDRS485_
+#ifndef __RECEIVERS485_
+#define __RECEIVERS485_
 
 #include "rs485.h"
-#include "easytimer.h"
+#include "sensors.h"
 
-EasyTimer_t RS485Timer1 = {.start_time = 0, .interval = 50};  // 50ms
+// do the receive parsing here
+void RS485bus_Read(void) {
+    RS485_Message incoming;
 
-void Send_Test_RS485_Message(void) {
-    RS485_Message rs_msg;
+    if (RS485_Read_Message(&huart1, &incoming)) {
+        
+        // use the start byte to classify each message
+        // if data[i] == designator that tells me which CAN message to pack...
+        // Reassemble the 16-bit values (Little Endian as per your sender)
+        bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
+        travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
+        travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
 
-    rs_msg.start_byte = 0xAA;
-
-    uint16_t bias = 12345;
-    uint16_t travelFL = 12345;
-    uint16_t travelFR = 12345;
-
-    rs_msg.data[0] = (uint8_t)(bias & 0xFF);
-    rs_msg.data[1] = (uint8_t)(bias >> 8);
-    rs_msg.data[2] = (uint8_t)(travelFL & 0xFF);
-    rs_msg.data[3] = (uint8_t)(travelFL >> 8);
-    rs_msg.data[4] = (uint8_t)(travelFR & 0xFF);
-    rs_msg.data[5] = (uint8_t)(travelFR >> 8);
-
-    // Send it using UART1 handle
-    RS485_Write_Message(&rs_msg, &huart1);
+        // Now do something with the data...
+//        printf("Received Bias: %u, FL: %u, FR: %u\n", rx_bias, rx_travelFL, rx_travelFR);
+    }
 }
 
-void RS485_Online(void){
-
-    if (Timer_HasElapsed(&RS485Timer1)) {
-    	Send_Test_RS485_Message();
-	}
-
-}
 
 #endif

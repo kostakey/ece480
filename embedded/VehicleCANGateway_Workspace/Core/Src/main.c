@@ -21,11 +21,10 @@
 #include "stdio.h"
 #include "easytimer.h"
 
-#include "rs485.h"
-#include "rs485_send.h"
+#include "rs485_receive.h"
 
-#include "tcan.h"
 #include "can_send.h"
+
 //#include "temp_sensor.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -129,9 +128,13 @@ int main(void)
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
 
-	  CAN1_Online(CAN1_SPI_CS_Pin); // for sending
+	  RS485bus_Read();
+
+	  CANbus_Send(CAN1_SPI_CS_Pin);
 	  // Do CAN2 also
-	  RS485_Online(); // for sending
+//	  RS485_Online(); // for sending
+
+
 
   }
   /* USER CODE END 3 */
