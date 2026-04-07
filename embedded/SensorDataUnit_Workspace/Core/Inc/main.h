@@ -66,18 +66,20 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define CAN1_SPI_CS_Pin GPIO_PIN_0
-#define CAN1_SPI_CS_GPIO_Port GPIOA
-#define CAN2_SPI_CS_Pin GPIO_PIN_9
-#define CAN2_SPI_CS_GPIO_Port GPIOA
+#define ACC_SPI_CS_Pin GPIO_PIN_0
+#define CAN1_SPI_CS_Pin GPIO_PIN_0 // not used
+#define ACC_SPI_CS_GPIO_Port GPIOA
+#define CAN1_SPI_CS_GPIO_Port GPIOA // not used
+#define CAN2_SPI_CS_Pin GPIO_PIN_9 // not used
+#define CAN2_SPI_CS_GPIO_Port GPIOA // not used
 #define RS485_Receiver_EN_Pin GPIO_PIN_12
 #define RS485_Receiver_EN_GPIO_Port GPIOB
 #define RS485_Driver_EN_Pin GPIO_PIN_13
 #define RS485_Driver_EN_GPIO_Port GPIOB
-#define CAN1_nINT_Pin GPIO_PIN_1
-#define CAN1_nINT_GPIO_Port GPIOA
-#define CAN2_nINT_Pin GPIO_PIN_7
-#define CAN2_nINT_GPIO_Port GPIOB
+#define CAN1_nINT_Pin GPIO_PIN_1 // not used
+#define CAN1_nINT_GPIO_Port GPIOA // not used
+#define CAN2_nINT_Pin GPIO_PIN_7 // not used
+#define CAN2_nINT_GPIO_Port GPIOB // not used
 #define Instrumentation_Amp_1_Pin GPIO_PIN_0
 #define Instrumentation_Amp_1_GPIO_Port GPIOB
 #define Instrumentation_Amp_2_Pin GPIO_PIN_1

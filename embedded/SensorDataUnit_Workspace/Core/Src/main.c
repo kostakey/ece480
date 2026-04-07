@@ -21,6 +21,8 @@
 #include "stdio.h"
 #include "easytimer.h"
 
+#include "adc.h"
+
 #include "rs485_send.h"
 
 //#include "temp_sensor.h"
@@ -119,14 +121,19 @@ int main(void)
   // EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
   // EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
 
+  ADXL372_Init(ACC_SPI_CS_Pin);
+
   while (1)
   {
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
 
-//	  CAN1_Online(CAN1_SPI_CS_Pin); // for sending
-	  // Do CAN2 also
-	  RS485_Online(); // for sending
+    Sample_ADXL372(ACC_SPI_CS_Pin);
+    // sample ADCs here
+    Sample_ADCs();
+
+
+	  RS485_Send();
 
   }
   /* USER CODE END 3 */
@@ -338,7 +345,7 @@ static void MX_ADC1_Init(void)
   /** Common config
   */
   hadc1.Instance = ADC1;
-  hadc1.Init.SequenceLength = 1;
+  hadc1.Init.SequenceLength = 2; // 2 channels
   hadc1.Init.SamplingMode = ADC_SAMPLING_AT_START;
   hadc1.Init.SampleRate = ADC_SAMPLE_RATE_140;
   hadc1.Init.InvertOutputMode = ADC_DATA_INVERT_NONE;
@@ -359,13 +366,21 @@ static void MX_ADC1_Init(void)
   ConfigChannel.CalibrationPoint.Number = ADC_CALIB_NONE;
   ConfigChannel.CalibrationPoint.Gain = 0x00;
   ConfigChannel.CalibrationPoint.Offset = 0x00;
+  // change sampling time
+  // change sampling channel
+  
   if (HAL_ADC_ConfigChannel(&hadc1, &ConfigChannel) != HAL_OK)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN ADC1_Init 2 */
+  
+  ConfigChannel.Channel
+  ConfigChannel.Rank = ADC_RANK_2; // the second ADC channel
 
-  /* USER CODE END ADC1_Init 2 */
+  if (HAL_ADC_ConfigChannel(&hadc1, &ConfigChannel) != HAL_OK)
+  {
+    Error_Handler();
+  }
 
 }
 
