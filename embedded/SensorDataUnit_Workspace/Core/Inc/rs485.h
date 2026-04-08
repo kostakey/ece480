@@ -8,16 +8,73 @@ extern UART_HandleTypeDef huart1;
 // Define the expected data length based on your Send function (6 bytes)
 #define RS485_DATA_LEN 6
 
+#define TX_QUEUE_SIZE 10
+
 typedef struct {
     uint8_t start_byte; // e.g., 0xAA
     uint8_t data[6];    // 6 bytes of payload
     uint8_t checksum;   // Computed XOR byte
 } RS485_Message;
 
-typedef enum {
-    STATE_WAIT_START,
-    STATE_COLLECT_DATA
-} RxState_t;
+//typedef enum {
+//    STATE_WAIT_START,
+//    STATE_COLLECT_DATA
+//} RxState_t;
+
+// --- Circular Buffer for Non-Halting TX ---
+//typedef struct {
+//    RS485_Message messages[TX_QUEUE_SIZE];
+//    uint8_t head;
+//    uint8_t tail;
+//    uint8_t count;
+//} RS485_Queue_t;
+
+//static RS485_Queue_t txQueue = {0};
+//static uint8_t tx_active_buf[8]; // Buffer for the current transfer
+
+//void RS485_Enqueue(RS485_Message *msg) {
+//    if (txQueue.count < TX_QUEUE_SIZE) {
+//        txQueue.messages[txQueue.head] = *msg;
+//        txQueue.head = (txQueue.head + 1) % TX_QUEUE_SIZE;
+//        txQueue.count++;
+//    }
+//}
+
+//void RS485_Process_Queue(UART_HandleTypeDef *huart) {
+//    // Only start a new transmission if UART is free and queue isn't empty
+//    if (huart->gState == HAL_UART_STATE_READY && txQueue.count > 0) {
+//
+//        RS485_Message *msg = &txQueue.messages[txQueue.tail];
+//
+//        // 1. Pack the static transfer buffer
+//        tx_active_buf[0] = msg->start_byte;
+//        uint8_t xor_sum = tx_active_buf[0];
+//        for(int i = 0; i < 6; i++) {
+//            tx_active_buf[i+1] = msg->data[i];
+//            xor_sum ^= tx_active_buf[i+1];
+//        }
+//        tx_active_buf[7] = xor_sum;
+//
+//        // 2. Enable RS485 Driver
+//        HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_SET);
+//        HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_SET);
+//
+//        // 3. Start Non-Blocking Transmission
+//        if (HAL_UART_Transmit_IT(huart, tx_active_buf, 8) == HAL_OK) {
+//            txQueue.tail = (txQueue.tail + 1) % TX_QUEUE_SIZE;
+//            txQueue.count--;
+//        }
+//    }
+//}
+
+// THIS IS CRITICAL: This callback runs when the last byte leaves the UART
+//void HAL_UART_TxCpltCallback(UART_HandleTypeDef *huart) {
+//    if (huart->Instance == USART1) {
+//        // Return to Receive Mode immediately
+//        HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
+//        HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+//    }
+//}
 
 //void RS485_Send(uint8_t *pData, uint16_t Size) {
 //    // 1. Enable Driver (Disable Receiver to avoid echo)
@@ -75,36 +132,36 @@ void RS485_Write_Message(RS485_Message *msg, UART_HandleTypeDef *huart) {
     HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
 }
 
-int RS485_Read_Message(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
-    static RxState_t state = STATE_WAIT_START;
-    static uint8_t data_index = 0;
-    uint8_t rx_byte;
-
-    // Check if a byte is available in the UART hardware (Non-blocking check)
-    // We use a timeout of 0 to ensure we don't stall the main loop
-    if (HAL_UART_Receive(huart, &rx_byte, 1, 0) == HAL_OK) {
-
-        switch (state) {
-            case STATE_WAIT_START:
-                if (rx_byte == 0xAA) {
-                    out_msg->start_byte = 0xAA;
-                    data_index = 0;
-                    state = STATE_COLLECT_DATA;
-                }
-                break;
-
-            case STATE_COLLECT_DATA:
-                out_msg->data[data_index++] = rx_byte;
-
-                if (data_index >= RS485_DATA_LEN) {
-                    state = STATE_WAIT_START; // Reset for next message
-                    return 1; // Success! Full message received
-                }
-                break;
-        }
-    }
-    return 0; // Message not yet complete
-}
+//int RS485_Read_Message(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
+//    static RxState_t state = STATE_WAIT_START;
+//    static uint8_t data_index = 0;
+//    uint8_t rx_byte;
+//
+//    // Check if a byte is available in the UART hardware (Non-blocking check)
+//    // We use a timeout of 0 to ensure we don't stall the main loop
+//    if (HAL_UART_Receive(huart, &rx_byte, 1, 0) == HAL_OK) {
+//
+//        switch (state) {
+//            case STATE_WAIT_START:
+//                if (rx_byte == 0xAA) {
+//                    out_msg->start_byte = 0xAA;
+//                    data_index = 0;
+//                    state = STATE_COLLECT_DATA;
+//                }
+//                break;
+//
+//            case STATE_COLLECT_DATA:
+//                out_msg->data[data_index++] = rx_byte;
+//
+//                if (data_index >= RS485_DATA_LEN) {
+//                    state = STATE_WAIT_START; // Reset for next message
+//                    return 1; // Success! Full message received
+//                }
+//                break;
+//        }
+//    }
+//    return 0; // Message not yet complete
+//}
 
 //void RS485_Send_Test_Message(uint8_t *pData) {
 //    uint8_t tx_buf[8];

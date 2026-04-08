@@ -5463,3 +5463,496 @@ Finished building: default.size.stdout
  
 Finished building: VehicleCANGateway.list
  
+22:32:40 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:4:10: fatal error: adxl.h: No such file or directory
+    4 | #include "adxl.h"
+      |          ^~~~~~~~
+compilation terminated.
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:34:13 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:26:
+../../Core/Inc/can_send.h: In function 'Send_Test_CAN_Message':
+../../Core/Inc/can_send.h:26:32: error: 'bias' undeclared (first use in this function)
+   26 |     tx_msg.data[2] = (uint8_t)(bias & 0xFF);
+      |                                ^~~~
+../../Core/Inc/can_send.h:26:32: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/can_send.h:28:32: error: 'travelFL' undeclared (first use in this function)
+   28 |     tx_msg.data[4] = (uint8_t)(travelFL & 0xFF);
+      |                                ^~~~~~~~
+../../Core/Inc/can_send.h:30:32: error: 'travelFR' undeclared (first use in this function)
+   30 |     tx_msg.data[6] = (uint8_t)(travelFR & 0xFF);
+      |                                ^~~~~~~~
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:34:41 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:26:
+../../Core/Inc/can_send.h: In function 'Send_Test_CAN_Message':
+../../Core/Inc/can_send.h:19:5: error: 'bias' undeclared (first use in this function)
+   19 |     bias = 12345;
+      |     ^~~~
+../../Core/Inc/can_send.h:19:5: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/can_send.h:20:5: error: 'travelFL' undeclared (first use in this function)
+   20 |     travelFL = 12345;
+      |     ^~~~~~~~
+../../Core/Inc/can_send.h:21:5: error: 'travelFR' undeclared (first use in this function)
+   21 |     travelFR = 12345;
+      |     ^~~~~~~~
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+22:35:31 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  23172	     24	   3484	  26680	   6838	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+22:40:14 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23172	     24	   3484	  26680	   6838	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+22:42:05 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  23220	     24	   3492	  26736	   6870	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+22:45:16 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  23220	     24	   3492	  26736	   6870	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+22:54:23 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  23220	     24	   3484	  26728	   6868	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:00:59 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:141:54: error: 'rx_buffer' undeclared (first use in this function); did you mean 'setbuffer'?
+  141 |           watchpoint4 = RS485_Read_Message(&huart1, &rx_buffer);
+      |                                                      ^~~~~~~~~
+      |                                                      setbuffer
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:141:54: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:01:38 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22972	     24	   3480	  26476	   676c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:03:11 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:42: error: 'huart' undeclared (first use in this function); did you mean 'huart1'?
+  142 |           watchpoint4 = HAL_UART_Receive(huart, &rx_byte, 1, 0);
+      |                                          ^~~~~
+      |                                          huart1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:42: note: each undeclared identifier is reported only once for each function it appears in
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:50: error: 'rx_byte' undeclared (first use in this function)
+  142 |           watchpoint4 = HAL_UART_Receive(huart, &rx_byte, 1, 0);
+      |                                                  ^~~~~~~
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:134:25: warning: unused variable 'rx_buffer' [-Wunused-variable]
+  134 |           RS485_Message rx_buffer;
+      |                         ^~~~~~~~~
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:03:27 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:42: error: 'huart' undeclared (first use in this function); did you mean 'huart1'?
+  142 |           watchpoint4 = HAL_UART_Receive(huart, &rx_byte, 1, 0);
+      |                                          ^~~~~
+      |                                          huart1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:42: note: each undeclared identifier is reported only once for each function it appears in
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:49: error: passing argument 2 of 'HAL_UART_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  142 |           watchpoint4 = HAL_UART_Receive(huart, &rx_byte, 1, 0);
+      |                                                 ^~~~~~~~
+      |                                                 |
+      |                                                 RS485_Message *
+In file included from ../../Core/Inc/stm32wl3x_hal_conf.h:258,
+                 from ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal.h:29,
+                 from ../../Core/Inc/main.h:30,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:20:
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_uart.h:1646:72: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'RS485_Message *'
+ 1646 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                               ~~~~~~~~~^~~~~
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:03:50 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:42: error: 'huart' undeclared (first use in this function); did you mean 'huart1'?
+  142 |           watchpoint4 = HAL_UART_Receive(huart, &rx_byte, 1, 0);
+      |                                          ^~~~~
+      |                                          huart1
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:42: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:04:03 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:142:42: error: incompatible type for argument 1 of 'HAL_UART_Receive'
+  142 |           watchpoint4 = HAL_UART_Receive(huart1, &rx_byte, 1, 0);
+      |                                          ^~~~~~
+      |                                          |
+      |                                          UART_HandleTypeDef {aka struct __UART_HandleTypeDef}
+In file included from ../../Core/Inc/stm32wl3x_hal_conf.h:258,
+                 from ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal.h:29,
+                 from ../../Core/Inc/main.h:30,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:20:
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_uart.h:1646:56: note: expected 'UART_HandleTypeDef *' {aka 'struct __UART_HandleTypeDef *'} but argument is of type 'UART_HandleTypeDef' {aka 'struct __UART_HandleTypeDef'}
+ 1646 | HAL_StatusTypeDef HAL_UART_Receive(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                    ~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+23:04:17 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22736	     24	   3480	  26240	   6680	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:08:50 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22748	     24	   3480	  26252	   668c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:26:52 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22748	     24	   3480	  26252	   668c	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+23:34:05 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22780	     24	   3480	  26284	   66ac	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:35:51 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:44:38 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+23:52:35 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+00:07:28 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+00:29:44 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+01:07:12 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+01:15:56 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22792	     24	   3480	  26296	   66b8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:17:20 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22792	     24	   3480	  26296	   66b8	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+01:28:12 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
+arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 
+Finished building: VehicleCANGateway.list
+ 
+01:28:56 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+make -j8 all 
+arm-none-eabi-size  VehicleCANGateway.elf 
+   text	   data	    bss	    dec	    hex	filename
+  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+Finished building: default.size.stdout
+ 

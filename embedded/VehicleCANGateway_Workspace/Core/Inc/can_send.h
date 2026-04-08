@@ -16,19 +16,15 @@ void Send_Test_CAN_Message(uint16_t cs) {
     tx_msg.id = 123;
     tx_msg.len = 8;
 
-//    bias = 12345;
-//    travelFL = 12345;
-//    travelFR = 12345;
-
     // Map your data to the buffer
     tx_msg.data[0] = ctr & 0x0F; // rolling counter stays between 0 and 15
     tx_msg.data[1] = 0;
-    tx_msg.data[2] = (uint8_t)(bias & 0xFF);
-    tx_msg.data[3] = (uint8_t)(bias >> 8);
-    tx_msg.data[4] = (uint8_t)(travelFL & 0xFF);
-    tx_msg.data[5] = (uint8_t)(travelFL >> 8);
-    tx_msg.data[6] = (uint8_t)(travelFR & 0xFF);
-    tx_msg.data[7] = (uint8_t)(travelFR >> 8);
+    tx_msg.data[2] = (uint8_t)(triaxial_x_g & 0xFF);
+    tx_msg.data[3] = (uint8_t)(triaxial_x_g >> 8);
+    tx_msg.data[4] = (uint8_t)(triaxial_y_g & 0xFF);
+    tx_msg.data[5] = (uint8_t)(triaxial_y_g >> 8);
+    tx_msg.data[6] = (uint8_t)(triaxial_z_g & 0xFF);
+    tx_msg.data[7] = (uint8_t)(triaxial_z_g >> 8);
 
     ctr++; // update rolling counter
 

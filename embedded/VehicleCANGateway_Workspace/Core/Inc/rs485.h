@@ -15,9 +15,10 @@ typedef struct {
 } RS485_Message;
 
 typedef enum {
-    STATE_WAIT_START,
-    STATE_COLLECT_DATA
-} RxState_t;
+    RX_STATE_IDLE,
+    RX_STATE_DATA,
+    RX_STATE_CHECKSUM
+} RS485_RxState_t;
 
 //void RS485_Send(uint8_t *pData, uint16_t Size) {
 //    // 1. Enable Driver (Disable Receiver to avoid echo)
@@ -76,34 +77,50 @@ void RS485_Write_Message(RS485_Message *msg, UART_HandleTypeDef *huart) {
 }
 
 int RS485_Read_Message(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
-    static RxState_t state = STATE_WAIT_START;
-    static uint8_t data_index = 0;
+    static RS485_RxState_t state = RX_STATE_IDLE;
+    static uint8_t data_idx = 0;
+    static uint8_t calc_xor = 0;
     uint8_t rx_byte;
 
-    // Check if a byte is available in the UART hardware (Non-blocking check)
-    // We use a timeout of 0 to ensure we don't stall the main loop
+    // Non-blocking poll: Check if a byte is sitting in the UART hardware
     if (HAL_UART_Receive(huart, &rx_byte, 1, 0) == HAL_OK) {
 
         switch (state) {
-            case STATE_WAIT_START:
-                if (rx_byte == 0xAA) {
-                    out_msg->start_byte = 0xAA;
-                    data_index = 0;
-                    state = STATE_COLLECT_DATA;
+            case RX_STATE_IDLE:
+                // Look for any of your valid start bytes (A0, B0, or C0)
+                if (rx_byte == 0xA0 || rx_byte == 0xB0 || rx_byte == 0xC0) {
+                    out_msg->start_byte = rx_byte;
+                    calc_xor = rx_byte; // Start checksum with the ID
+                    data_idx = 0;
+                    state = RX_STATE_DATA;
                 }
                 break;
 
-            case STATE_COLLECT_DATA:
-                out_msg->data[data_index++] = rx_byte;
+            case RX_STATE_DATA:
+                out_msg->data[data_idx] = rx_byte;
+                calc_xor ^= rx_byte; // Accumulate XOR checksum
+                data_idx++;
 
-                if (data_index >= RS485_DATA_LEN) {
-                    state = STATE_WAIT_START; // Reset for next message
-                    return 1; // Success! Full message received
+                if (data_idx >= 6) {
+                    state = RX_STATE_CHECKSUM;
+                }
+                break;
+
+            case RX_STATE_CHECKSUM:
+                out_msg->checksum = rx_byte;
+                state = RX_STATE_IDLE; // Reset for next packet
+
+                // Validate Checksum
+                if (out_msg->checksum == calc_xor) {
+                    return 1; // SUCCESS: Full valid message received
+                } else {
+                    // Checksum error - discard packet
+                    return -1;
                 }
                 break;
         }
     }
-    return 0; // Message not yet complete
+    return 0; // Still waiting for more bytes
 }
 
 //void RS485_Send_Test_Message(uint8_t *pData) {

@@ -78,6 +78,10 @@ float Broadcast_Temperature(void);
 
 int loop_count = 0; // Variable to watch in the debugger
 //uint8_t data[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
+uint16_t watchpoint1;
+uint16_t watchpoint2;
+uint16_t watchpoint3;
+uint16_t watchpoint4;
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
@@ -123,12 +127,34 @@ int main(void)
   // EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
   // EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
 
+  HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+
   while (1)
   {
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
+	  uint8_t rx_byte;
 
-	  RS485bus_Read();
+//	  RS485bus_Read();
+
+	  watchpoint1 = triaxial_x_g;
+	  watchpoint2 = strain_gauge_diff_v;
+	  watchpoint3 = uniaxial_v;
+	  watchpoint4 = HAL_UART_Receive(&huart1, &rx_byte, 1, 0);
+
+//	  watchpoint4 = HAL_UART_Receive(&huart1, &rx_byte, 1, 0);
+	  // Check if the UART hardware actually has a byte waiting
+//	  if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_RXNE) != RESET)
+//	  {
+//		  // Now we call Receive. Since we know data is there, it will return HAL_OK immediately.
+//		  watchpoint4 = HAL_UART_Receive(&huart1, &rx_byte, 1, 0);
+//
+//		  if (watchpoint4 == HAL_OK) {
+//			  // Put your RS485 State Machine logic here (the code I gave you previously)
+//			  // e.g., RS485_Process_Byte(rx_byte);
+//		  }
+//	  }
 
 	  CANbus_Send(CAN1_SPI_CS_Pin);
 	  // Do CAN2 also
@@ -211,9 +237,8 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
-//  huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Parity = UART_PARITY_EVEN;
-  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
@@ -447,6 +472,9 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+
+//  HAL_PWREx_DisableGPIOPullUp(PWR_GPIO_B, PWR_GPIO_BIT_14 | PWR_GPIO_BIT_15);
+//  HAL_PWREx_DisableGPIOPullDown(PWR_GPIO_B, PWR_GPIO_BIT_14 | PWR_GPIO_BIT_15);
 
   /**/
   HAL_PWREx_EnableGPIOPullUp(PWR_GPIO_A, PWR_GPIO_BIT_2);

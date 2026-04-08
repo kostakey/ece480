@@ -1,14 +1,49 @@
 #ifndef __SENSORS_
 #define __SENSORS_
 
+#include "adxl.h"
+
+#define ADC_BITS 12
+#define ADC_MAX_VALUE 4095
+#define ADC_VREF 2400 // vref in mV
+#define IA_GAIN 100
+
 // define sensor signals here, also create processing functions here -- shared between the gatewaya and the sensor board
+// keep in mind, each signal is 16 bits
 
-// strain gauge stuff
-// uniaxial stuff
-// triaxial stuff
+// need general ADC to raw voltage
 
-static uint16_t bias;
-static uint16_t travelFL;
-static uint16_t travelFR;
+// strain gauge things -- from ADC
+static uint16_t strain_gauge_adc;
+//static uint16_t strain_gauge_plus_v;
+//static uint16_t strain_gauge_minus_adc;
+//static uint16_t strain_gauge_minus_v;
+//static uint16_t strain_gauge_diff_adc;
+static uint16_t strain_gauge_diff_v;
+static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+
+// uniaxial things -- from ADC
+static uint16_t uniaxial_adc;
+static uint16_t uniaxial_v; // raw voltage
+static uint16_t uniaxial_hz; // frequency
+
+// triaxial things -- 16 bit sigs from SPI
+static uint16_t triaxial_x_g;
+static uint16_t triaxial_y_g;
+static uint16_t triaxial_z_g;
+
+uint16_t ADC_to_Voltage(uint16_t adc){
+    return (uint16_t)((uint32_t)adc * ADC_VREF) / ADC_MAX_VALUE;
+}
+
+//uint16_t Uniaxial_Voltage_To_Freq(uint16_t v){
+//
+//    return;
+//}
+//
+//uint16_t Strain_Gauge_Diff_To_Freq(uint16_t v){
+//
+//    return;
+//}
 
 #endif

@@ -81,6 +81,12 @@ int loop_count = 0; // Variable to watch in the debugger
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
+uint16_t watchpoint1;
+uint16_t watchpoint1_5;
+uint16_t watchpoint2;
+uint16_t watchpoint2_5;
+uint16_t watchpoint3;
+
 /**
   * @brief  The application entry point.
   * @retval int
@@ -126,14 +132,21 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  loop_count++; // Increment the counter
+	loop_count++; // Increment the counter
 
-    Sample_ADXL372(ACC_SPI_CS_Pin);
-    // sample ADCs here
-    Sample_ADCs();
+	Sample_ADXL372(ACC_SPI_CS_Pin);
+
+	watchpoint1 = strain_gauge_adc;
+	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
+	watchpoint2 = uniaxial_adc;
+	watchpoint2_5 = ADC_to_Voltage(uniaxial_adc);
+	watchpoint3 = triaxial_x_g;
+
+	// sample ADCs here
+	Sample_ADCs();
 
 
-	  RS485_Send();
+	RS485_Send();
 
   }
   /* USER CODE END 3 */
@@ -210,9 +223,8 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.BaudRate = 9600;
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
-//  huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Parity = UART_PARITY_EVEN;
-  huart1.Init.Mode = UART_MODE_TX_RX;
+  huart1.Init.Parity = UART_PARITY_NONE;
+  huart1.Init.Mode = UART_MODE_TX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
@@ -238,6 +250,11 @@ static void MX_USART1_UART_Init(void)
 
   /* USER CODE END USART1_Init 2 */
 
+}
+
+void USART1_IRQHandler(void)
+{
+  HAL_UART_IRQHandler(&huart1);
 }
 
 /**
@@ -360,12 +377,12 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  ConfigChannel.Channel = ADC_CHANNEL_TEMPSENSOR;
+  ConfigChannel.Channel = ADC_CHANNEL_VINM1; // IA 1 - Pin 30 (PB0)
   ConfigChannel.Rank = ADC_RANK_1;
-  ConfigChannel.VoltRange = ADC_VIN_RANGE_3V6; // was 1V2
+  ConfigChannel.VoltRange = ADC_VIN_RANGE_2V4; // STM only sees 3.3V, 3.6Vref is unreachable
   ConfigChannel.CalibrationPoint.Number = ADC_CALIB_NONE;
-  ConfigChannel.CalibrationPoint.Gain = 0x00;
-  ConfigChannel.CalibrationPoint.Offset = 0x00;
+//  ConfigChannel.CalibrationPoint.Gain = 0x00;
+//  ConfigChannel.CalibrationPoint.Offset = 0x00;
   // change sampling time
   // change sampling channel
   
@@ -374,8 +391,13 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
   
-  ConfigChannel.Channel
+  ConfigChannel.Channel = ADC_CHANNEL_VINP1; // IA 2 - Pin 31 (PB1)
   ConfigChannel.Rank = ADC_RANK_2; // the second ADC channel
+//  ConfigChannel.VoltRange = ADC_VIN_RANGE_3V6; // was 1V2
+//  ConfigChannel.CalibrationPoint.Number = ADC_CALIB_NONE;
+//  ConfigChannel.CalibrationPoint.Gain = 0x00;
+//  ConfigChannel.CalibrationPoint.Offset = 0x00;
+
 
   if (HAL_ADC_ConfigChannel(&hadc1, &ConfigChannel) != HAL_OK)
   {
@@ -383,25 +405,6 @@ static void MX_ADC1_Init(void)
   }
 
 }
-
-//float Broadcast_Temperature(void) {
-//    HAL_ADC_Start(&hadc1);
-//    if (HAL_ADC_PollForConversion(&hadc1, 10) == HAL_OK) {
-//        adc_raw = HAL_ADC_GetValue(&hadc1);
-//
-//        // Use your calibrated room temp math
-//        float voltage = (float)adc_raw * (3.6f / 4095.0f);
-//        global_celsius = ((voltage - 0.483f) / 0.0025f) + 25.0f;
-//
-//        // NEW: Convert to a whole number (e.g., 25.4 becomes 25)
-//        int16_t temp_int = (int16_t)global_celsius;
-//
-//        // Send just 2 bytes instead of 4
-//        RS485_Send((uint8_t *)&temp_int, 2);
-//    }
-//    HAL_ADC_Stop(&hadc1);
-//    return global_celsius;
-//}
 
 /**
   * @brief GPIO Initialization Function
