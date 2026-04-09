@@ -32,6 +32,10 @@ static uint16_t triaxial_x_g;
 static uint16_t triaxial_y_g;
 static uint16_t triaxial_z_g;
 
+//triaxial_x_g = ADXL372_GetG(triaxial_x_raw);
+//triaxial_y_g = ADXL372_GetG(triaxial_y_raw);
+//triaxial_z_g = ADXL372_GetG(triaxial_z_raw);
+
 uint16_t ADC_to_Voltage(uint16_t adc){
     return (uint16_t)((uint32_t)adc * ADC_VREF) / ADC_MAX_VALUE;
 }

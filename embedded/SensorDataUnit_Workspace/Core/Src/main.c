@@ -25,6 +25,7 @@
 
 #include "rs485_send.h"
 
+#include "adxl.h" // for troubleshooting 3acc
 //#include "temp_sensor.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -86,6 +87,11 @@ uint16_t watchpoint1_5;
 uint16_t watchpoint2;
 uint16_t watchpoint2_5;
 uint16_t watchpoint3;
+uint16_t watchpoint5;
+
+uint8_t watchpoint_th;
+
+uint8_t device_id;
 
 /**
   * @brief  The application entry point.
@@ -127,7 +133,9 @@ int main(void)
   // EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
   // EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
 
-  ADXL372_Init(ACC_SPI_CS_Pin);
+  watchpoint_th = ADXL372_Init(ACC_SPI_CS_Pin);
+
+  device_id = ADXL372_ReadReg(ADXL372_DEVID_AD, ACC_SPI_CS_Pin);
 
   while (1)
   {
@@ -140,7 +148,8 @@ int main(void)
 	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
 	watchpoint2 = uniaxial_adc;
 	watchpoint2_5 = ADC_to_Voltage(uniaxial_adc);
-	watchpoint3 = triaxial_x_g;
+	watchpoint3 = triaxial_x_raw;
+	watchpoint5 = triaxial_z_raw;
 
 	// sample ADCs here
 	Sample_ADCs();

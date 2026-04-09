@@ -120,7 +120,7 @@ void RS485_Send(void){
     // if (Timer_HasElapsed(&RS485TimerTest)) {
     // 	Send_Test_RS485_Message();
 	// }
-	static EasyTimer_t RS485TimerA0 = {.start_time = 0, .interval = 30};  // 50ms
+	static EasyTimer_t RS485TimerA0 = {.start_time = 0, .interval = 50};  // 50ms
     if (Timer_HasElapsed(&RS485TimerA0)) {
     	Send_RS485_Message_A0();
 //    	RS485_Process_Queue(&huart1);

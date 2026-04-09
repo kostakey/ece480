@@ -22,6 +22,7 @@
 #include "easytimer.h"
 
 #include "rs485_receive.h"
+#include "rs485_send.h"
 
 #include "can_send.h"
 
@@ -82,6 +83,29 @@ uint16_t watchpoint1;
 uint16_t watchpoint2;
 uint16_t watchpoint3;
 uint16_t watchpoint4;
+uint16_t watchpoint11;
+uint16_t watchpoint12;
+
+uint16_t watchpoint_raw;
+uint16_t watchpoint_more;
+
+uint16_t watchpoint_90;
+uint16_t watchpoint_91;
+uint16_t watchpoint_92;
+uint16_t watchpoint_93;
+uint16_t watchpoint_94;
+uint16_t watchpoint_95;
+uint16_t watchpoint_96;
+uint16_t watchpoint_97;
+
+uint16_t watchpoint_80;
+uint16_t watchpoint_81;
+uint16_t watchpoint_82;
+uint16_t watchpoint_83;
+uint16_t watchpoint_84;
+uint16_t watchpoint_85;
+uint16_t watchpoint_86;
+uint16_t watchpoint_87;
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
@@ -134,35 +158,21 @@ int main(void)
   {
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
-	  uint8_t rx_byte;
-
-//	  RS485bus_Read();
 
 	  watchpoint1 = triaxial_x_g;
+	  watchpoint11 = triaxial_y_g;
+	  watchpoint12 = triaxial_z_g;
 	  watchpoint2 = strain_gauge_diff_v;
 	  watchpoint3 = uniaxial_v;
-	  watchpoint4 = HAL_UART_Receive(&huart1, &rx_byte, 1, 0);
 
-//	  watchpoint4 = HAL_UART_Receive(&huart1, &rx_byte, 1, 0);
-	  // Check if the UART hardware actually has a byte waiting
-//	  if (__HAL_UART_GET_FLAG(&huart1, UART_FLAG_RXNE) != RESET)
-//	  {
-//		  // Now we call Receive. Since we know data is there, it will return HAL_OK immediately.
-//		  watchpoint4 = HAL_UART_Receive(&huart1, &rx_byte, 1, 0);
-//
-//		  if (watchpoint4 == HAL_OK) {
-//			  // Put your RS485 State Machine logic here (the code I gave you previously)
-//			  // e.g., RS485_Process_Byte(rx_byte);
-//		  }
-//	  }
+	  RS485bus_Read();
 
 	  CANbus_Send(CAN1_SPI_CS_Pin);
 	  // Do CAN2 also
-//	  RS485_Online(); // for sending
-
 
 
   }
+//  }
   /* USER CODE END 3 */
 }
 
@@ -238,7 +248,7 @@ static void MX_USART1_UART_Init(void)
   huart1.Init.WordLength = UART_WORDLENGTH_8B;
   huart1.Init.StopBits = UART_STOPBITS_1;
   huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_RX;
+  huart1.Init.Mode = UART_MODE_TX_RX;
   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   huart1.Init.OverSampling = UART_OVERSAMPLING_16;
   huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;

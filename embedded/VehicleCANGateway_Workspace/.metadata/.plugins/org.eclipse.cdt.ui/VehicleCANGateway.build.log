@@ -1,10 +1,25 @@
-01:28:56 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+03:13:05 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
 make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/rs485_receive.h:5,
+                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   26 | static uint16_t uniaxial_adc;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   17 | static uint16_t strain_gauge_adc;
+      |                 ^~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: VehicleCANGateway.elf
+ 
 arm-none-eabi-size  VehicleCANGateway.elf 
+arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
    text	   data	    bss	    dec	    hex	filename
-  22768	     24	   3480	  26272	   66a0	VehicleCANGateway.elf
+  22684	     16	   3492	  26192	   6650	VehicleCANGateway.elf
 Finished building: default.size.stdout
  
+Finished building: VehicleCANGateway.list
+ 
 
-01:28:57 Build Finished. 0 errors, 0 warnings. (took 523ms)
+03:13:07 Build Finished. 0 errors, 2 warnings. (took 1s.529ms)
 

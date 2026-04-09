@@ -1188,3 +1188,485 @@ Finished building: default.size.stdout
  
 Finished building: SensorDataUnit.list
  
+02:13:32 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+02:14:04 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+02:17:13 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27496	     24	   3480	  31000	   7918	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+02:21:07 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+02:22:08 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+02:22:54 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+02:24:33 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27496	     24	   3480	  31000	   7918	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+02:25:13 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+02:25:58 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+03:41:18 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27480	     24	   3480	  30984	   7908	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+03:45:00 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27496	     24	   3480	  31000	   7918	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+03:55:45 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/sensors.h:4,
+                 from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/adxl.h: In function 'Sample_ADXL372':
+../../Core/Inc/adxl.h:139:34: error: 'ADXL372_READ' undeclared (first use in this function); did you mean 'ADXL372_REVID'?
+  139 |     uint8_t addr = (0x08 << 1) | ADXL372_READ;
+      |                                  ^~~~~~~~~~~~
+      |                                  ADXL372_REVID
+../../Core/Inc/adxl.h:139:34: note: each undeclared identifier is reported only once for each function it appears in
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+03:56:57 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27776	     24	   3480	  31280	   7a30	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+03:57:06 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-size  SensorDataUnit.elf 
+   text	   data	    bss	    dec	    hex	filename
+  27776	     24	   3480	  31280	   7a30	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+04:05:38 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:35:1: warning: data definition has no type or storage class
+   35 | triaxial_x_g = ADXL372_GetG(triaxial_x_raw);
+      | ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:35:1: error: type defaults to 'int' in declaration of 'triaxial_x_g' [-Wimplicit-int]
+../../Core/Inc/sensors.h:35:1: error: conflicting types for 'triaxial_x_g'; have 'int'
+../../Core/Inc/sensors.h:31:17: note: previous declaration of 'triaxial_x_g' with type 'uint16_t' {aka 'short unsigned int'}
+   31 | static uint16_t triaxial_x_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:35:16: error: initializer element is not constant
+   35 | triaxial_x_g = ADXL372_GetG(triaxial_x_raw);
+      |                ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:36:1: warning: data definition has no type or storage class
+   36 | triaxial_y_g = ADXL372_GetG(triaxial_y_raw);
+      | ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:36:1: error: type defaults to 'int' in declaration of 'triaxial_y_g' [-Wimplicit-int]
+../../Core/Inc/sensors.h:36:1: error: conflicting types for 'triaxial_y_g'; have 'int'
+../../Core/Inc/sensors.h:32:17: note: previous declaration of 'triaxial_y_g' with type 'uint16_t' {aka 'short unsigned int'}
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:36:16: error: initializer element is not constant
+   36 | triaxial_y_g = ADXL372_GetG(triaxial_y_raw);
+      |                ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:37:1: warning: data definition has no type or storage class
+   37 | triaxial_z_g = ADXL372_GetG(triaxial_z_raw);
+      | ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:37:1: error: type defaults to 'int' in declaration of 'triaxial_z_g' [-Wimplicit-int]
+../../Core/Inc/sensors.h:37:1: error: conflicting types for 'triaxial_z_g'; have 'int'
+../../Core/Inc/sensors.h:33:17: note: previous declaration of 'triaxial_z_g' with type 'uint16_t' {aka 'short unsigned int'}
+   33 | static uint16_t triaxial_z_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:37:16: error: initializer element is not constant
+   37 | triaxial_z_g = ADXL372_GetG(triaxial_z_raw);
+      |                ^~~~~~~~~~~~
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:138:9: error: implicit declaration of function 'Sample_ADXL372'; did you mean 'Sample_ADCs'? [-Wimplicit-function-declaration]
+  138 |         Sample_ADXL372(ACC_SPI_CS_Pin);
+      |         ^~~~~~~~~~~~~~
+      |         Sample_ADCs
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+04:06:01 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:138:9: error: implicit declaration of function 'Sample_ADXL372'; did you mean 'Sample_ADCs'? [-Wimplicit-function-declaration]
+  138 |         Sample_ADXL372(ACC_SPI_CS_Pin);
+      |         ^~~~~~~~~~~~~~
+      |         Sample_ADCs
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+04:06:31 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27780	     24	   3484	  31288	   7a38	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+04:07:35 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:33:17: warning: 'triaxial_z_g' defined but not used [-Wunused-variable]
+   33 | static uint16_t triaxial_z_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:31:17: warning: 'triaxial_x_g' defined but not used [-Wunused-variable]
+   31 | static uint16_t triaxial_x_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27800	     24	   3484	  31308	   7a4c	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+04:08:29 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:33:17: warning: 'triaxial_z_g' defined but not used [-Wunused-variable]
+   33 | static uint16_t triaxial_z_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:31:17: warning: 'triaxial_x_g' defined but not used [-Wunused-variable]
+   31 | static uint16_t triaxial_x_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27800	     24	   3484	  31308	   7a4c	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 
+04:10:10 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c: In function 'main':
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:138:49: error: 'cs_pin' undeclared (first use in this function)
+  138 |   device_id = ADXL372_ReadReg(ADXL372_DEVID_AD, cs_pin);
+      |                                                 ^~~~~~
+C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:138:49: note: each undeclared identifier is reported only once for each function it appears in
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h: At top level:
+../../Core/Inc/sensors.h:33:17: warning: 'triaxial_z_g' defined but not used [-Wunused-variable]
+   33 | static uint16_t triaxial_z_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:31:17: warning: 'triaxial_x_g' defined but not used [-Wunused-variable]
+   31 | static uint16_t triaxial_x_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+make: *** [Application/User/Core/subdir.mk:31: Application/User/Core/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+04:10:27 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+make -j8 all 
+arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
+In file included from ../../Core/Inc/adc.h:5,
+                 from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:33:17: warning: 'triaxial_z_g' defined but not used [-Wunused-variable]
+   33 | static uint16_t triaxial_z_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:31:17: warning: 'triaxial_x_g' defined but not used [-Wunused-variable]
+   31 | static uint16_t triaxial_x_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:23:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   23 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "SensorDataUnit.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\SensorDataUnit_Workspace\SensorDataUnit\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SensorDataUnit.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: SensorDataUnit.elf
+ 
+arm-none-eabi-size  SensorDataUnit.elf 
+arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
+   text	   data	    bss	    dec	    hex	filename
+  27820	     24	   3484	  31328	   7a60	SensorDataUnit.elf
+Finished building: default.size.stdout
+ 
+Finished building: SensorDataUnit.list
+ 

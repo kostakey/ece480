@@ -63,64 +63,17 @@ void RS485_Write_Message(RS485_Message *msg, UART_HandleTypeDef *huart) {
 
     // 3. Enable Driver / Disable Receiver
     HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_SET);
-    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
 
     // 4. Send via UART
-    HAL_UART_Transmit(huart, tx_buf, 8, 100);
+    HAL_UART_Transmit(huart, tx_buf, 8, 0);
 
-    // 5. WAIT for physical shifting to finish
-    while(__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET);
-
-    // 6. Return to Receive Mode
-    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
-}
-
-int RS485_Read_Message(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
-    static RS485_RxState_t state = RX_STATE_IDLE;
-    static uint8_t data_idx = 0;
-    static uint8_t calc_xor = 0;
-    uint8_t rx_byte;
-
-    // Non-blocking poll: Check if a byte is sitting in the UART hardware
-    if (HAL_UART_Receive(huart, &rx_byte, 1, 0) == HAL_OK) {
-
-        switch (state) {
-            case RX_STATE_IDLE:
-                // Look for any of your valid start bytes (A0, B0, or C0)
-                if (rx_byte == 0xA0 || rx_byte == 0xB0 || rx_byte == 0xC0) {
-                    out_msg->start_byte = rx_byte;
-                    calc_xor = rx_byte; // Start checksum with the ID
-                    data_idx = 0;
-                    state = RX_STATE_DATA;
-                }
-                break;
-
-            case RX_STATE_DATA:
-                out_msg->data[data_idx] = rx_byte;
-                calc_xor ^= rx_byte; // Accumulate XOR checksum
-                data_idx++;
-
-                if (data_idx >= 6) {
-                    state = RX_STATE_CHECKSUM;
-                }
-                break;
-
-            case RX_STATE_CHECKSUM:
-                out_msg->checksum = rx_byte;
-                state = RX_STATE_IDLE; // Reset for next packet
-
-                // Validate Checksum
-                if (out_msg->checksum == calc_xor) {
-                    return 1; // SUCCESS: Full valid message received
-                } else {
-                    // Checksum error - discard packet
-                    return -1;
-                }
-                break;
-        }
-    }
-    return 0; // Still waiting for more bytes
+//     5. WAIT for physical shifting to finish
+//    while(__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET);
+//
+//    // 6. Return to Receive Mode
+//    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
+//    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
 }
 
 //void RS485_Send_Test_Message(uint8_t *pData) {

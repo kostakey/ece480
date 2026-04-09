@@ -4,47 +4,75 @@
 #include "rs485.h"
 #include "sensors.h"
 
-// do the receive parsing here
-//void RS485bus_Read(void) {
-//    RS485_Message incoming;
-//
-//    if (RS485_Read_Message(&huart1, &incoming)) {
-//
-//        // use the start byte to classify each message
-//        // if data[i] == designator that tells me which CAN message to pack...
-//        // Reassemble the 16-bit values (Little Endian as per your sender)
-//        bias     = (uint16_t)(incoming.data[0] | (incoming.data[1] << 8));
-//        travelFL = (uint16_t)(incoming.data[2] | (incoming.data[3] << 8));
-//        travelFR = (uint16_t)(incoming.data[4] | (incoming.data[5] << 8));
-//
-//        // Now do something with the data...
-////        printf("Received Bias: %u, FL: %u, FR: %u\n", rx_bias, rx_travelFL, rx_travelFR);
-//    }
-//}
-
 void RS485bus_Read(void){
-	RS485_Message rx_buffer;
+//  RS485_Message rx_buffer;
 
-	if (RS485_Read_Message(&huart1, &rx_buffer) == 1) {
+//  RS485_Read_Message(&huart1, &rx_buffer);
 
-		// Use a switch to handle different message IDs
-		switch (rx_buffer.start_byte) {
-			case 0xA0:
-				triaxial_x_g = (rx_buffer.data[1] << 8) | rx_buffer.data[0];
-				triaxial_y_g = (rx_buffer.data[3] << 8) | rx_buffer.data[2];
-				triaxial_z_g = (rx_buffer.data[5] << 8) | rx_buffer.data[4];
-				break;
-			case 0xB0:
-				strain_gauge_diff_v = (rx_buffer.data[3] << 8) | rx_buffer.data[2];
-				strain_gauge_hz     = (rx_buffer.data[5] << 8) | rx_buffer.data[4];
-				break;
-			case 0xC0:
-				uniaxial_v  = (rx_buffer.data[3] << 8) | rx_buffer.data[2];
-				uniaxial_hz = (rx_buffer.data[5] << 8) | rx_buffer.data[4];
-				break;
-		}
-	}
+  static uint8_t my_local_rx[8];
+  static uint8_t index = 0;
+  uint8_t rx_temp;
 
+  HAL_StatusTypeDef status = HAL_UART_Receive(&huart1, &rx_temp, 1, 0);
+
+  if (status == HAL_OK) {
+	  if (index == 0) {
+		  // Filter for any valid starting ID
+		  if (rx_temp == 0xA0 || rx_temp == 0xB0 || rx_temp == 0xC0) {
+			  my_local_rx[index] = rx_temp;
+			  index++;
+		  }
+	  } else {
+		  my_local_rx[index] = rx_temp;
+		  index++;
+
+		  if (index >= 8) {
+			  // Process based on which ID we caught at the start
+			  if (my_local_rx[0] == 0xA0) {
+				  // Store in triaxial variables
+//				  watchpoint_90 = my_local_rx[0];
+//				  watchpoint_91 = my_local_rx[1];
+//				  watchpoint_92 = my_local_rx[2];
+//				  watchpoint_93 = my_local_rx[3];
+//				  watchpoint_94 = my_local_rx[4];
+//				  watchpoint_95 = my_local_rx[5];
+//				  watchpoint_96 = my_local_rx[6];
+//				  watchpoint_97 = my_local_rx[7];
+
+				  triaxial_x_g = (my_local_rx[1] << 8) | my_local_rx[0];
+				  triaxial_y_g = (my_local_rx[3] << 8) | my_local_rx[2];
+				  triaxial_z_g = (my_local_rx[5] << 8) | my_local_rx[4];
+
+			  } else if (my_local_rx[0] == 0xB0) {
+				  // Store in strain gauge variables
+//				  watchpoint_80 = my_local_rx[0];
+//				  watchpoint_81 = my_local_rx[1];
+//				  watchpoint_82 = my_local_rx[2];
+//				  watchpoint_83 = my_local_rx[3];
+//				  watchpoint_84 = my_local_rx[4];
+//				  watchpoint_85 = my_local_rx[5];
+//				  watchpoint_86 = my_local_rx[6];
+//				  watchpoint_87 = my_local_rx[7];
+				  strain_gauge_diff_v = (my_local_rx[3] << 8) | my_local_rx[2];
+				  strain_gauge_hz     = (my_local_rx[5] << 8) | my_local_rx[4];
+
+			  } else if (my_local_rx[0] == 0xC0) {
+				  // Store in strain gauge variables
+//				  watchpoint_80 = my_local_rx[0];
+//				  watchpoint_81 = my_local_rx[1];
+//				  watchpoint_82 = my_local_rx[2];
+//				  watchpoint_83 = my_local_rx[3];
+//				  watchpoint_84 = my_local_rx[4];
+//				  watchpoint_85 = my_local_rx[5];
+//				  watchpoint_86 = my_local_rx[6];
+//				  watchpoint_87 = my_local_rx[7];
+				  uniaxial_v  = (my_local_rx[3] << 8) | my_local_rx[2];
+				  uniaxial_hz = (my_local_rx[5] << 8) | my_local_rx[4];
+			  }
+
+			  index = 0; // Reset
+		  }
+	  }
 }
 
 

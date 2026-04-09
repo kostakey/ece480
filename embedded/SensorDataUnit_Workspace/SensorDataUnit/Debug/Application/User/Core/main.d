@@ -50,7 +50,7 @@ Application/User/Core/main.o: \
  ../../Core/Inc/easytimer.h ../../Core/Inc/adc.h ../../Core/Inc/main.h \
  ../../Core/Inc/sensors.h ../../Core/Inc/adxl.h \
  ../../Core/Inc/rs485_send.h ../../Core/Inc/rs485.h \
- ../../Core/Inc/easytimer.h ../../Core/Inc/adc.h
+ ../../Core/Inc/easytimer.h ../../Core/Inc/adc.h ../../Core/Inc/adxl.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal.h:
 ../../Core/Inc/stm32wl3x_hal_conf.h:
@@ -107,3 +107,4 @@ Application/User/Core/main.o: \
 ../../Core/Inc/rs485.h:
 ../../Core/Inc/easytimer.h:
 ../../Core/Inc/adc.h:
+../../Core/Inc/adxl.h:

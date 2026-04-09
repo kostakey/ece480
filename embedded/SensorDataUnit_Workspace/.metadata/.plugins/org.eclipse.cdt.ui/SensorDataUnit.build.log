@@ -1,8 +1,17 @@
-00:04:04 **** Incremental Build of configuration Debug for project SensorDataUnit ****
+04:10:27 **** Incremental Build of configuration Debug for project SensorDataUnit ****
 make -j8 all 
 arm-none-eabi-gcc "C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
 In file included from ../../Core/Inc/adc.h:5,
                  from C:/repos/ece480/embedded/SensorDataUnit_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:33:17: warning: 'triaxial_z_g' defined but not used [-Wunused-variable]
+   33 | static uint16_t triaxial_z_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:31:17: warning: 'triaxial_x_g' defined but not used [-Wunused-variable]
+   31 | static uint16_t triaxial_x_g;
+      |                 ^~~~~~~~~~~~
 ../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
    28 | static uint16_t uniaxial_hz; // frequency
       |                 ^~~~~~~~~~~
@@ -15,11 +24,11 @@ Finished building target: SensorDataUnit.elf
 arm-none-eabi-size  SensorDataUnit.elf 
 arm-none-eabi-objdump -h -S SensorDataUnit.elf  > "SensorDataUnit.list"
    text	   data	    bss	    dec	    hex	filename
-  27524	     24	   3480	  31028	   7934	SensorDataUnit.elf
+  27820	     24	   3484	  31328	   7a60	SensorDataUnit.elf
 Finished building: default.size.stdout
  
 Finished building: SensorDataUnit.list
  
 
-00:04:06 Build Finished. 0 errors, 2 warnings. (took 1s.781ms)
+04:10:28 Build Finished. 0 errors, 5 warnings. (took 1s.471ms)
 

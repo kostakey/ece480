@@ -122,14 +122,14 @@ void RS485_Write_Message(RS485_Message *msg, UART_HandleTypeDef *huart) {
     HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_SET);
 
     // 4. Send via UART
-    HAL_UART_Transmit(huart, tx_buf, 8, 100);
+    HAL_UART_Transmit(huart, tx_buf, 8, 10); // 10ms to send 8 bytes on 9600baud
 
     // 5. WAIT for physical shifting to finish
-    while(__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET);
+//    while(__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET);
 
     // 6. Return to Receive Mode
-    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
-    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+//    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
+//    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
 }
 
 //int RS485_Read_Message(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
