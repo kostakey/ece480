@@ -79,14 +79,14 @@ float Broadcast_Temperature(void);
 
 int loop_count = 0; // Variable to watch in the debugger
 //uint8_t data[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
-uint16_t watchpoint1;
+float watchpoint1;
 uint16_t watchpoint2;
 uint16_t watchpoint3;
 uint16_t watchpoint4;
-uint16_t watchpoint11;
-uint16_t watchpoint12;
+float watchpoint11;
+float watchpoint12;
 
-uint16_t watchpoint_raw;
+uint8_t watchpoint_raw;
 uint16_t watchpoint_more;
 
 uint16_t watchpoint_90;
@@ -106,6 +106,22 @@ uint16_t watchpoint_84;
 uint16_t watchpoint_85;
 uint16_t watchpoint_86;
 uint16_t watchpoint_87;
+
+uint32_t check8270;
+uint32_t check0820;
+uint32_t check1018;
+
+uint32_t check10C0;
+uint32_t check0824;
+
+uint32_t check10A0;
+
+uint32_t check1044;
+uint32_t check1040;
+
+uint32_t check10D4;
+uint32_t check10D0;
+
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
@@ -146,31 +162,73 @@ int main(void)
   MX_USART1_UART_Init();
   MX_MRSUBG_Init();
 
+
   TCAN4550_Init(CAN1_SPI_CS_Pin);
 
-  // EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
-  // EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
 
-  HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
-  HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+//  HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
+//  HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+
+
+//  	TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
+
+//  	TCAN4550_WriteReg(0x8270, 0x048C0000, CAN1_SPI_CS_Pin); // ID 0x123
+//  	    TCAN4550_WriteReg(0x8274, 0x00080000, CAN1_SPI_CS_Pin); // DLC 8
+//  	    TCAN4550_WriteReg(0x8278, 0x4C4C4548, CAN1_SPI_CS_Pin); // "HELL"
+//  	    TCAN4550_WriteReg(0x827C, 0x2121214F, CAN1_SPI_CS_Pin); // "O!!!"
+//
+//  	  TCAN4550_WriteReg(0x10D4, 0xFFFFFFFF, CAN1_SPI_CS_Pin);
+//  	check10D4 = TCAN4550_ReadReg(0x10D4, CAN1_SPI_CS_Pin);
+//  	  TCAN4550_WriteReg(0x10D0, 0x00000001, CAN1_SPI_CS_Pin);
+
+
+//  	  check10D0 = TCAN4550_ReadReg(0x10D0, CAN1_SPI_CS_Pin);
+//  	check1044 = TCAN4550_ReadReg(0x1044, CAN1_SPI_CS_Pin);
+//  	check1040 = TCAN4550_ReadReg(0x1040, CAN1_SPI_CS_Pin);
+
+//  	TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
+//  	TCAN4550_WriteReg(0x10D4, 0xFFFFFFFF, CAN1_SPI_CS_Pin);
 
   while (1)
   {
     /* USER CODE END WHILE */
 	  loop_count++; // Increment the counter
 
-	  watchpoint1 = triaxial_x_g;
-	  watchpoint11 = triaxial_y_g;
-	  watchpoint12 = triaxial_z_g;
-	  watchpoint2 = strain_gauge_diff_v;
-	  watchpoint3 = uniaxial_v;
+//	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
+//	  TCAN4550_WriteReg(0x10D4, 0xFFFFFFFF, CAN1_SPI_CS_Pin);
+//	  HAL_Delay(500);
 
 	  RS485bus_Read();
 
+	  // 1. Trigger Software Reset (Bit 31 of 0x0800)
+//	  TCAN4550_WriteReg(0x0800, 0x80000000, CAN1_SPI_CS_Pin);
+
+	  // 2. CRITICAL: Wait for the chip to reboot
+//	  HAL_Delay(50);
+
+	  // 3. Clear any sticky interrupts/status that survived
+//	  TCAN4550_WriteReg(0x0820, 0xFFFFFFFF, CAN1_SPI_CS_Pin); // Clear Interrupts
+
+//	  watchpoint_raw = uniaxial_hz;
+//	  watchpoint_more = watchpoint_raw;
+//
+//	  watchpoint1 = Raw_to_G(triaxial_x_raw);
+//	  watchpoint11 = Raw_to_G(triaxial_y_raw);
+//	  watchpoint12 = Raw_to_G(triaxial_z_raw);
+//	  watchpoint2 = triaxial_z_raw;
+//	  watchpoint3 = triaxial_x_raw;
+//	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
 	  CANbus_Send(CAN1_SPI_CS_Pin);
 	  // Do CAN2 also
 
+//
+//	  static EasyTimer_t CANTimer124 = {.start_time = 0, .interval = 500};  // 500ms
+//	      if (Timer_HasElapsed(&CANTimer124)) {
+//	    	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
 
+//	  	}
+//	  Send_Test_CAN_Message(CAN1_SPI_CS_Pin);
+//	  HAL_Delay(100);
   }
 //  }
   /* USER CODE END 3 */
@@ -342,7 +400,7 @@ static void MX_SPI3_Init(void)
   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256;
   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

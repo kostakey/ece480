@@ -40,6 +40,10 @@ uint16_t ADC_to_Voltage(uint16_t adc){
     return (uint16_t)((uint32_t)adc * ADC_VREF) / ADC_MAX_VALUE;
 }
 
+uint16_t Raw_to_G(uint16_t raw){
+	return ADXL372_GetG(raw);
+}
+
 //uint16_t Uniaxial_Voltage_To_Freq(uint16_t v){
 //
 //    return;

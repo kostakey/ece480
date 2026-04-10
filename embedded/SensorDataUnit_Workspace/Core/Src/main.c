@@ -92,6 +92,11 @@ uint16_t watchpoint5;
 uint8_t watchpoint_th;
 
 uint8_t device_id;
+uint8_t thing1;
+uint8_t thing2;
+
+uint16_t watchpoint6;
+uint16_t watchpoint7;
 
 /**
   * @brief  The application entry point.
@@ -133,9 +138,21 @@ int main(void)
   // EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
   // EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
 
-  watchpoint_th = ADXL372_Init(ACC_SPI_CS_Pin);
+//  watchpoint_th = ADXL372_Init(ACC_SPI_CS_Pin);
 
-  device_id = ADXL372_ReadReg(ADXL372_DEVID_AD, ACC_SPI_CS_Pin);
+//  ADXL372_WriteReg(0x00, 0x01, ACC_SPI_CS_Pin); // write something to address 0
+
+  ADXL372_Init(ACC_SPI_CS_Pin);
+
+//  device_id = ADXL372_ReadReg(0x00, ACC_SPI_CS_Pin);
+//
+//  device_id = ADXL372_ReadReg(0x00, ACC_SPI_CS_Pin);
+//
+//  thing1 = ADXL372_ReadReg(0x01, ACC_SPI_CS_Pin);
+//  thing2 = ADXL372_ReadReg(0x02, ACC_SPI_CS_Pin);
+
+
+
 
   while (1)
   {
@@ -144,12 +161,15 @@ int main(void)
 
 	Sample_ADXL372(ACC_SPI_CS_Pin);
 
-	watchpoint1 = strain_gauge_adc;
-	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
-	watchpoint2 = uniaxial_adc;
-	watchpoint2_5 = ADC_to_Voltage(uniaxial_adc);
+//	watchpoint1 = strain_gauge_adc;
+//	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
+//	watchpoint2 = uniaxial_adc;
+//	watchpoint2_5 = ADC_to_Voltage(uniaxial_adc);
 	watchpoint3 = triaxial_x_raw;
 	watchpoint5 = triaxial_z_raw;
+//
+	watchpoint6 = triaxial_x_g;
+	watchpoint7 = triaxial_z_g;
 
 	// sample ADCs here
 	Sample_ADCs();
@@ -332,7 +352,7 @@ static void MX_SPI3_Init(void)
   hspi3.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi3.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi3.Init.NSS = SPI_NSS_SOFT;
-  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
+  hspi3.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_256; // changed the prescale to slow things down a ton
   hspi3.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi3.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi3.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;

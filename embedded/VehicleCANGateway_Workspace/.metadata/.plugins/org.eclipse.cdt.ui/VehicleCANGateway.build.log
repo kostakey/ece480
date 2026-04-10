@@ -1,11 +1,26 @@
-03:13:05 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+07:02:48 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
 make -j8 all 
 arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
 In file included from ../../Core/Inc/rs485_receive.h:5,
                  from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/sensors.h:33:17: warning: 'triaxial_z_g' defined but not used [-Wunused-variable]
+   33 | static uint16_t triaxial_z_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
+   32 | static uint16_t triaxial_y_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:31:17: warning: 'triaxial_x_g' defined but not used [-Wunused-variable]
+   31 | static uint16_t triaxial_x_g;
+      |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:27:17: warning: 'uniaxial_v' defined but not used [-Wunused-variable]
+   27 | static uint16_t uniaxial_v; // raw voltage
+      |                 ^~~~~~~~~~
 ../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
    26 | static uint16_t uniaxial_adc;
       |                 ^~~~~~~~~~~~
+../../Core/Inc/sensors.h:22:17: warning: 'strain_gauge_diff_v' defined but not used [-Wunused-variable]
+   22 | static uint16_t strain_gauge_diff_v;
+      |                 ^~~~~~~~~~~~~~~~~~~
 ../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
    17 | static uint16_t strain_gauge_adc;
       |                 ^~~~~~~~~~~~~~~~
@@ -15,11 +30,11 @@ Finished building target: VehicleCANGateway.elf
 arm-none-eabi-size  VehicleCANGateway.elf 
 arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
    text	   data	    bss	    dec	    hex	filename
-  22684	     16	   3492	  26192	   6650	VehicleCANGateway.elf
+  22956	     24	   3484	  26464	   6760	VehicleCANGateway.elf
 Finished building: default.size.stdout
  
 Finished building: VehicleCANGateway.list
  
 
-03:13:07 Build Finished. 0 errors, 2 warnings. (took 1s.529ms)
+07:02:51 Build Finished. 0 errors, 7 warnings. (took 2s.520ms)
 

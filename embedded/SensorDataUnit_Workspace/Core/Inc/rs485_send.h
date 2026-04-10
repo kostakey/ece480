@@ -40,19 +40,25 @@ void Send_RS485_Message_A0(void) {
 
     // 16 bits per sig
 
-//    rs_msg.data[0] = (uint8_t)(triaxial_x_g & 0xFF);
-//    rs_msg.data[1] = (uint8_t)(triaxial_x_g >> 8);
-//    rs_msg.data[2] = (uint8_t)(triaxial_y_g & 0xFF);
-//    rs_msg.data[3] = (uint8_t)(triaxial_y_g >> 8);
-//    rs_msg.data[4] = (uint8_t)(triaxial_z_g & 0xFF);
-//    rs_msg.data[5] = (uint8_t)(triaxial_z_g >> 8);
+//    triaxial_x_g = Raw_to_G(triaxial_x_raw);
+//    triaxial_y_g = Raw_to_G(triaxial_y_raw);
+//    triaxial_z_g = Raw_to_G(triaxial_z_raw);
 
-    rs_msg.data[0] = 0xA0;
-	rs_msg.data[1] = 0xA0;
-	rs_msg.data[2] = 0xA0;
-	rs_msg.data[3] = 0xA0;
-	rs_msg.data[4] = 0xA0;
-	rs_msg.data[5] = 0xA0;
+    // send raw 12bit+ values here, decode on the receiver side (*0.1)
+
+    rs_msg.data[0] = (uint8_t)(triaxial_x_raw);
+    rs_msg.data[1] = (uint8_t)(triaxial_x_raw >> 8);
+    rs_msg.data[2] = (uint8_t)(triaxial_y_raw);
+    rs_msg.data[3] = (uint8_t)(triaxial_y_raw >> 8);
+    rs_msg.data[4] = (uint8_t)(triaxial_z_raw);
+    rs_msg.data[5] = (uint8_t)(triaxial_z_raw >> 8);
+
+//    rs_msg.data[0] = 0xA0;
+//	rs_msg.data[1] = 0xA0;
+//	rs_msg.data[2] = 0xA0;
+//	rs_msg.data[3] = 0xA0;
+//	rs_msg.data[4] = 0xA0;
+//	rs_msg.data[5] = 0xA0;
 
     // Send it using UART1 handle
     RS485_Write_Message(&rs_msg, &huart1);
@@ -120,7 +126,9 @@ void RS485_Send(void){
     // if (Timer_HasElapsed(&RS485TimerTest)) {
     // 	Send_Test_RS485_Message();
 	// }
-	static EasyTimer_t RS485TimerA0 = {.start_time = 0, .interval = 50};  // 50ms
+
+	// 50ms currently, add clock to improve baud rate and decrease interval time
+	static EasyTimer_t RS485TimerA0 = {.start_time = 0, .interval = 50};
     if (Timer_HasElapsed(&RS485TimerA0)) {
     	Send_RS485_Message_A0();
 //    	RS485_Process_Queue(&huart1);
