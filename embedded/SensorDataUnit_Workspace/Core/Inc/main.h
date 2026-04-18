@@ -37,6 +37,7 @@ extern "C" {
 #include "stm32wl3x_ll_gpio.h"
 #include "stm32wl3x_ll_pwr.h"
 #include "stm32wl3x_ll_dma.h"
+#include "stm32wl3x_ll_tim.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

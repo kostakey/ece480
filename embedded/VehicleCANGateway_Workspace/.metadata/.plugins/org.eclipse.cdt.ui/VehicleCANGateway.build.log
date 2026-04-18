@@ -1,28 +1,76 @@
-07:02:48 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
+18:12:58 **** Incremental Build of configuration Debug for project VehicleCANGateway ****
 make -j8 all 
 arm-none-eabi-gcc "C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c" -mcpu=cortex-m0plus -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32WL3XX -DUSE_FULL_LL_DRIVER -c -I../../Core/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc -I../../Drivers/STM32WL3x_HAL_Driver/Inc/Legacy -I../../Drivers/CMSIS/Device/ST/STM32WL3X/Include -I../../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Application/User/Core/main.d" -MT"Application/User/Core/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Application/User/Core/main.o"
-In file included from ../../Core/Inc/rs485_receive.h:5,
-                 from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
-../../Core/Inc/sensors.h:33:17: warning: 'triaxial_z_g' defined but not used [-Wunused-variable]
-   33 | static uint16_t triaxial_z_g;
-      |                 ^~~~~~~~~~~~
-../../Core/Inc/sensors.h:32:17: warning: 'triaxial_y_g' defined but not used [-Wunused-variable]
-   32 | static uint16_t triaxial_y_g;
-      |                 ^~~~~~~~~~~~
-../../Core/Inc/sensors.h:31:17: warning: 'triaxial_x_g' defined but not used [-Wunused-variable]
-   31 | static uint16_t triaxial_x_g;
-      |                 ^~~~~~~~~~~~
-../../Core/Inc/sensors.h:27:17: warning: 'uniaxial_v' defined but not used [-Wunused-variable]
-   27 | static uint16_t uniaxial_v; // raw voltage
+In file included from C:/repos/ece480/embedded/VehicleCANGateway_Workspace/Core/Src/main.c:24:
+../../Core/Inc/rs485_receive.h:24:16: warning: 'byte17' defined but not used [-Wunused-variable]
+   24 | static uint8_t byte17;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:23:16: warning: 'byte16' defined but not used [-Wunused-variable]
+   23 | static uint8_t byte16;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:22:16: warning: 'byte15' defined but not used [-Wunused-variable]
+   22 | static uint8_t byte15;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:21:16: warning: 'byte14' defined but not used [-Wunused-variable]
+   21 | static uint8_t byte14;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:20:16: warning: 'byte13' defined but not used [-Wunused-variable]
+   20 | static uint8_t byte13;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:19:16: warning: 'byte12' defined but not used [-Wunused-variable]
+   19 | static uint8_t byte12;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:18:16: warning: 'byte11' defined but not used [-Wunused-variable]
+   18 | static uint8_t byte11;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:17:16: warning: 'byte10' defined but not used [-Wunused-variable]
+   17 | static uint8_t byte10;
+      |                ^~~~~~
+../../Core/Inc/rs485_receive.h:16:16: warning: 'byte9' defined but not used [-Wunused-variable]
+   16 | static uint8_t byte9;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:15:16: warning: 'byte8' defined but not used [-Wunused-variable]
+   15 | static uint8_t byte8;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:14:16: warning: 'byte7' defined but not used [-Wunused-variable]
+   14 | static uint8_t byte7;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:13:16: warning: 'byte6' defined but not used [-Wunused-variable]
+   13 | static uint8_t byte6;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:12:16: warning: 'byte5' defined but not used [-Wunused-variable]
+   12 | static uint8_t byte5;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:11:16: warning: 'byte4' defined but not used [-Wunused-variable]
+   11 | static uint8_t byte4;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:10:16: warning: 'byte3' defined but not used [-Wunused-variable]
+   10 | static uint8_t byte3;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:9:16: warning: 'byte2' defined but not used [-Wunused-variable]
+    9 | static uint8_t byte2;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:8:16: warning: 'byte1' defined but not used [-Wunused-variable]
+    8 | static uint8_t byte1;
+      |                ^~~~~
+../../Core/Inc/rs485_receive.h:7:16: warning: 'byte0' defined but not used [-Wunused-variable]
+    7 | static uint8_t byte0;
+      |                ^~~~~
+In file included from ../../Core/Inc/rs485_receive.h:5:
+../../Core/Inc/sensors.h:31:17: warning: 'uniaxial_hz' defined but not used [-Wunused-variable]
+   31 | static uint16_t uniaxial_hz; // frequency
+      |                 ^~~~~~~~~~~
+../../Core/Inc/sensors.h:29:17: warning: 'uniaxial_v' defined but not used [-Wunused-variable]
+   29 | static uint16_t uniaxial_v; // raw voltage
       |                 ^~~~~~~~~~
-../../Core/Inc/sensors.h:26:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
-   26 | static uint16_t uniaxial_adc;
+../../Core/Inc/sensors.h:28:17: warning: 'uniaxial_adc' defined but not used [-Wunused-variable]
+   28 | static uint16_t uniaxial_adc;
       |                 ^~~~~~~~~~~~
-../../Core/Inc/sensors.h:22:17: warning: 'strain_gauge_diff_v' defined but not used [-Wunused-variable]
-   22 | static uint16_t strain_gauge_diff_v;
-      |                 ^~~~~~~~~~~~~~~~~~~
-../../Core/Inc/sensors.h:17:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
-   17 | static uint16_t strain_gauge_adc;
+../../Core/Inc/sensors.h:25:17: warning: 'strain_gauge_hz' defined but not used [-Wunused-variable]
+   25 | static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
+      |                 ^~~~~~~~~~~~~~~
+../../Core/Inc/sensors.h:19:17: warning: 'strain_gauge_adc' defined but not used [-Wunused-variable]
+   19 | static uint16_t strain_gauge_adc;
       |                 ^~~~~~~~~~~~~~~~
 arm-none-eabi-gcc -o "VehicleCANGateway.elf" @"objects.list"   -mcpu=cortex-m0plus -T"C:\repos\ece480\embedded\VehicleCANGateway_Workspace\VehicleCANGateway\STM32WL33KCVX_FLASH.ld" --specs=nosys.specs -Wl,-Map="VehicleCANGateway.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: VehicleCANGateway.elf
@@ -30,11 +78,11 @@ Finished building target: VehicleCANGateway.elf
 arm-none-eabi-size  VehicleCANGateway.elf 
 arm-none-eabi-objdump -h -S VehicleCANGateway.elf  > "VehicleCANGateway.list"
    text	   data	    bss	    dec	    hex	filename
-  22956	     24	   3484	  26464	   6760	VehicleCANGateway.elf
+  23316	     24	   3500	  26840	   68d8	VehicleCANGateway.elf
 Finished building: default.size.stdout
  
 Finished building: VehicleCANGateway.list
  
 
-07:02:51 Build Finished. 0 errors, 7 warnings. (took 2s.520ms)
+18:13:00 Build Finished. 0 errors, 23 warnings. (took 1s.539ms)
 

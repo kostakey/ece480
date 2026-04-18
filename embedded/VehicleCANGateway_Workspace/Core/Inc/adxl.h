@@ -2,6 +2,7 @@
 #define __ADXL_H_
 
 #include "main.h"
+//#include "sensors.h"
 
 /* --- ADXL372 Register Map --- */
 #define ADXL372_DEVID_AD      0x00

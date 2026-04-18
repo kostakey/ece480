@@ -5,15 +5,23 @@
 
 extern UART_HandleTypeDef huart1;
 
-// Define the expected data length based on your Send function (6 bytes)
-#define RS485_DATA_LEN 6
+//// Define the expected data length based on your Send function (6 bytes)
+//#define RS485_DATA_LEN 6
+//
+//#define TX_QUEUE_SIZE 10
+//
+//typedef struct {
+//    uint8_t start_byte; // e.g., 0xAA
+//    uint8_t data[6];    // 6 bytes of payload
+//    uint8_t checksum;   // Computed XOR byte
+//} RS485_Message;
 
-#define TX_QUEUE_SIZE 10
+#define RS485_DATA_LEN 16 // Enough for Tri(6) + Strain(2) + Uniaxial(4) + Padding
 
 typedef struct {
-    uint8_t start_byte; // e.g., 0xAA
-    uint8_t data[6];    // 6 bytes of payload
-    uint8_t checksum;   // Computed XOR byte
+    uint8_t start_byte;
+    uint8_t data[RS485_DATA_LEN];
+    uint8_t checksum;
 } RS485_Message;
 
 //typedef enum {
@@ -76,61 +84,64 @@ typedef struct {
 //    }
 //}
 
-//void RS485_Send(uint8_t *pData, uint16_t Size) {
-//    // 1. Enable Driver (Disable Receiver to avoid echo)
-//    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_SET);
-//    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_SET);
-//
-//    // 2. Clear TC flag to ensure we wait for THIS transmission
-//    __HAL_UART_CLEAR_FLAG(&huart1, UART_FLAG_TC);
-//
-//    // 3. Send data
-//    HAL_UART_Transmit(&huart1, pData, Size, 1000);
-//
-//    // 4. Wait for hardware to physically finish shifting out the last bit
-////    while(__HAL_UART_GET_FLAG(&huart1, UART_FLAG_TC) == RESET) {
-////        // Optional: add a tiny timeout here for safety
-////    }
-//
-//    // 5. Final hardware "settling" delay
-//    // If you have a DWT delay function, use it. Otherwise, a few NOPs:
-////    for(volatile int i=0; i<500; i++) { __NOP(); }
-//
-//    // 6. Return to Receive Mode
-//    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
-//    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
-//}
-
 void RS485_Write_Message(RS485_Message *msg, UART_HandleTypeDef *huart) {
-    uint8_t tx_buf[8];
+    uint8_t tx_buf[18]; // 1 start + 16 data + 1 checksum
 
-    // 1. Pack the buffer
     tx_buf[0] = msg->start_byte;
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < 16; i++) {
         tx_buf[i+1] = msg->data[i];
     }
 
-    // 2. Compute Checksum (XOR of Start + Data)
+    // Compute Checksum over Start + All Data
     uint8_t xor_sum = tx_buf[0];
-    for(int i = 1; i < 7; i++) {
+    for(int i = 1; i < 17; i++) {
         xor_sum ^= tx_buf[i];
     }
-    tx_buf[7] = xor_sum;
+    tx_buf[17] = xor_sum;
 
-    // 3. Enable Driver / Disable Receiver
     HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_SET);
     HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_SET);
 
-    // 4. Send via UART
-    HAL_UART_Transmit(huart, tx_buf, 8, 10); // 10ms to send 8 bytes on 9600baud
+    // Transmit all 18 bytes
+    HAL_UART_Transmit(huart, tx_buf, 18, 20);
 
-    // 5. WAIT for physical shifting to finish
-//    while(__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET);
+    // CRITICAL: Ensure the last bit actually left the wire before switching back to RX
+    while(__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET);
 
-    // 6. Return to Receive Mode
-//    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
-//    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
 }
+
+//void RS485_Write_Message(RS485_Message *msg, UART_HandleTypeDef *huart) {
+//    uint8_t tx_buf[8];
+//
+//    // 1. Pack the buffer
+//    tx_buf[0] = msg->start_byte;
+//    for(int i = 0; i < 6; i++) {
+//        tx_buf[i+1] = msg->data[i];
+//    }
+//
+//    // 2. Compute Checksum (XOR of Start + Data)
+//    uint8_t xor_sum = tx_buf[0];
+//    for(int i = 1; i < 7; i++) {
+//        xor_sum ^= tx_buf[i];
+//    }
+//    tx_buf[7] = xor_sum;
+//
+//    // 3. Enable Driver / Disable Receiver
+//    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_SET);
+//    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_SET);
+//
+//    // 4. Send via UART
+//    HAL_UART_Transmit(huart, tx_buf, 8, 10); // 10ms to send 8 bytes on 9600baud
+//
+//    // 5. WAIT for physical shifting to finish
+////    while(__HAL_UART_GET_FLAG(huart, UART_FLAG_TC) == RESET);
+//
+//    // 6. Return to Receive Mode
+////    HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
+////    HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
+//}
 
 //int RS485_Read_Message(UART_HandleTypeDef *huart, RS485_Message *out_msg) {
 //    static RxState_t state = STATE_WAIT_START;

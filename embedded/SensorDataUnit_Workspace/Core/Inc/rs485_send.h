@@ -32,7 +32,85 @@
 //     RS485_Write_Message(&rs_msg, &huart1);
 // }
 
-void Send_RS485_Message_A0(void) {
+void Send_Combined_Message(void) {
+    RS485_Message rs_msg;
+
+    rs_msg.start_byte = 0xD0; // New unique ID for the "Combined" message
+
+    triaxial_x_g = (ADXL372_GetG(triaxial_x_raw) * 100.0f);
+    triaxial_y_g = (ADXL372_GetG(triaxial_y_raw) * 100.0f);
+    triaxial_z_g = (ADXL372_GetG(triaxial_z_raw) * 100.0f);
+
+    // 1. Pack Triaxial Data (6 bytes)
+    rs_msg.data[0] = (uint8_t)(triaxial_x_g);
+    rs_msg.data[1] = (uint8_t)(triaxial_x_g >> 8);
+    rs_msg.data[2] = (uint8_t)(triaxial_y_g);
+    rs_msg.data[3] = (uint8_t)(triaxial_y_g >> 8);
+    rs_msg.data[4] = (uint8_t)(triaxial_z_g);
+    rs_msg.data[5] = (uint8_t)(triaxial_z_g >> 8);
+
+    // 2. Pack Strain Gauge (2 bytes)
+    uint16_t strain_v = ADC_to_Voltage(strain_gauge_adc);
+    rs_msg.data[6] = (uint16_t)(strain_v);
+    rs_msg.data[7] = (uint16_t)(strain_v >> 8);
+
+    // 3. Pack Uniaxial G-Force (4 bytes)
+//    uniaxial_g = (int32_t)(Get_G_Force(ADC_to_Voltage(uniaxial_adc)) * 1000.0f);
+    uniaxial_g = (Get_G_Force(ADC_to_Voltage(uniaxial_adc)) * 1000.0f);
+    rs_msg.data[8] = (uint8_t)(uniaxial_g);
+    rs_msg.data[9] = (uint8_t)(uniaxial_g >> 8);
+    rs_msg.data[10] = (uint8_t)(uniaxial_g >> 16);
+    rs_msg.data[11] = (uint8_t)(uniaxial_g >> 24);
+
+    // 4. Bytes 12-15 are spare/padding for now
+    for(int i=12; i<16; i++) rs_msg.data[i] = 0;
+
+    // Send it using UART1 handle
+    RS485_Write_Message(&rs_msg, &huart1);
+}
+
+//void Send_Combined_Message(void) {
+//    RS485_Message rs_msg;
+//
+//    rs_msg.start_byte = 0xD0; // New unique ID for the "Combined" message
+//
+////    triaxial_x_g = (int16_t)(ADXL372_GetG(triaxial_x_raw) * 100.0f);
+////    triaxial_y_g = (int16_t)(ADXL372_GetG(triaxial_y_raw) * 100.0f);
+////    triaxial_z_g = (int16_t)(ADXL372_GetG(triaxial_z_raw) * 100.0f);
+//
+//    // 1. Pack Triaxial Data (6 bytes)
+//    rs_msg.data[0] = (uint8_t)(0x01);
+//    rs_msg.data[1] = (uint8_t)(0x01);
+//    rs_msg.data[2] = (uint8_t)(0x01);
+//    rs_msg.data[3] = (uint8_t)(0x01);
+//    rs_msg.data[4] = (uint8_t)(0x01);
+//    rs_msg.data[5] = (uint8_t)(0x01);
+//
+//    // 2. Pack Strain Gauge (2 bytes)
+////    uint16_t strain_v = ADC_to_Voltage(strain_gauge_adc);
+//    rs_msg.data[6] = (uint16_t)(0x02);
+//    rs_msg.data[7] = (uint16_t)(0x02);
+//
+//    // 3. Pack Uniaxial G-Force (4 bytes)
+////    uniaxial_g = (int32_t)(Get_G_Force(ADC_to_Voltage(uniaxial_adc)) * 1000.0f);
+//    rs_msg.data[8] = (uint8_t)(0x03);
+//    rs_msg.data[9] = (uint8_t)(0x03);
+//    rs_msg.data[10] = (uint8_t)(0x03);
+//    rs_msg.data[11] = (uint8_t)(0x03);
+//
+//    // 4. Bytes 12-15 are spare/padding for now
+////    for(int i=12; i<16; i++) rs_msg.data[i] = 0;
+//
+//    rs_msg.data[12] = (uint8_t)(0x00);
+//    rs_msg.data[13] = (uint8_t)(0x00);
+//    rs_msg.data[14] = (uint8_t)(0x00);
+//    rs_msg.data[15] = (uint8_t)(0x00);
+//
+//    // Send it using UART1 handle
+//    RS485_Write_Message(&rs_msg, &huart1);
+//}
+
+void Send_Message_A0(void) {
     RS485_Message rs_msg;
 
     // rs_msg.start_byte = 0xAA;
@@ -46,12 +124,12 @@ void Send_RS485_Message_A0(void) {
 
     // send raw 12bit+ values here, decode on the receiver side (*0.1)
 
-    rs_msg.data[0] = (uint8_t)(triaxial_x_raw);
-    rs_msg.data[1] = (uint8_t)(triaxial_x_raw >> 8);
-    rs_msg.data[2] = (uint8_t)(triaxial_y_raw);
-    rs_msg.data[3] = (uint8_t)(triaxial_y_raw >> 8);
-    rs_msg.data[4] = (uint8_t)(triaxial_z_raw);
-    rs_msg.data[5] = (uint8_t)(triaxial_z_raw >> 8);
+    rs_msg.data[0] = (int16_t)(triaxial_x_raw);
+    rs_msg.data[1] = (int16_t)(triaxial_x_raw >> 8);
+    rs_msg.data[2] = (int16_t)(triaxial_y_raw);
+    rs_msg.data[3] = (int16_t)(triaxial_y_raw >> 8);
+    rs_msg.data[4] = (int16_t)(triaxial_z_raw);
+    rs_msg.data[5] = (int16_t)(triaxial_z_raw >> 8);
 
 //    rs_msg.data[0] = 0xA0;
 //	rs_msg.data[1] = 0xA0;
@@ -65,7 +143,7 @@ void Send_RS485_Message_A0(void) {
 //    RS485_Enqueue(&rs_msg);
 }
 
-void Send_RS485_Message_B0(void) {
+void Send_Message_B0(void) {
     RS485_Message rs_msg;
 
     // rs_msg.start_byte = 0xAA;
@@ -85,21 +163,21 @@ void Send_RS485_Message_B0(void) {
     rs_msg.data[1] = 0xB0;
     rs_msg.data[2] = 0xB0;
     rs_msg.data[3] = 0xB0;
-    rs_msg.data[4] = 0xB0;
-    rs_msg.data[5] = 0xB0;
+    rs_msg.data[4] = (uint8_t) (strain_gauge_diff_v);
+    rs_msg.data[5] = (uint8_t) (strain_gauge_diff_v >> 8);
 
     // Send it using UART1 handle
     RS485_Write_Message(&rs_msg, &huart1);
-//    RS485_Enqueue(&rs_msg);
 }
 
-void Send_RS485_Message_C0(void) {
+void Send_Message_C0(void) {
     RS485_Message rs_msg;
 
     // rs_msg.start_byte = 0xAA;
     rs_msg.start_byte = 0xC0; // id for uniaxial msg
 
-    uniaxial_v = ADC_to_Voltage(uniaxial_adc);
+//    uniaxial_v = ADC_to_Voltage(uniaxial_adc);
+    uniaxial_v = (int32_t) Get_G_Force(ADC_to_Voltage(uniaxial_adc));
     // uniaxial_hz = v to hz function
 
 //    rs_msg.data[0] = 0;
@@ -111,14 +189,13 @@ void Send_RS485_Message_C0(void) {
 
     rs_msg.data[0] = 0xC0;
     rs_msg.data[1] = 0xC0;
-    rs_msg.data[2] = 0xC0;
-    rs_msg.data[3] = 0xC0;
-    rs_msg.data[4] = 0xC0;
-    rs_msg.data[5] = 0xC0;
+    rs_msg.data[2] = (int32_t) (uniaxial_v);
+    rs_msg.data[3] = (int32_t) (uniaxial_v >> 8);
+    rs_msg.data[4] = (int32_t) (uniaxial_v >> 16);
+    rs_msg.data[5] = (int32_t) (uniaxial_v >> 24);
 
     // Send it using UART1 handle
     RS485_Write_Message(&rs_msg, &huart1);
-//    RS485_Enqueue(&rs_msg);
 }
 
 void RS485_Send(void){
@@ -128,26 +205,25 @@ void RS485_Send(void){
 	// }
 
 	// 50ms currently, add clock to improve baud rate and decrease interval time
-	static EasyTimer_t RS485TimerA0 = {.start_time = 0, .interval = 50};
-    if (Timer_HasElapsed(&RS485TimerA0)) {
-    	Send_RS485_Message_A0();
-//    	RS485_Process_Queue(&huart1);
-//    	Send_RS485_Message_B0();
-//    	Send_RS485_Message_C0();
-	}
-
-//    RS485_Process_Queue(&huart1);
-//    static EasyTimer_t RS485TimerB0 = {.start_time = 0, .interval = 30};  // 50ms
+//	static EasyTimer_t RS485TimerA0 = {.start_time = 0, .interval = 50};
+//    if (Timer_HasElapsed(&RS485TimerA0)) {
+//    	Send_Message_A0();
+//	}
+//
+//    static EasyTimer_t RS485TimerB0 = {.start_time = 0, .interval = 50};
 //    if (Timer_HasElapsed(&RS485TimerB0)) {
-//    	Send_RS485_Message_B0();
-////    	RS485_Process_Queue(&huart1);
+//        Send_Message_B0();
+//    }
+//
+//    static EasyTimer_t RS485TimerC0 = {.start_time = 0, .interval = 50};
+//	if (Timer_HasElapsed(&RS485TimerC0)) {
+//		Send_Message_C0();
 //	}
-////
-//    static EasyTimer_t RS485TimerC0 = {.start_time = 0, .interval = 30};  // 50ms
-//    if (Timer_HasElapsed(&RS485TimerC0)) {
-//    	Send_RS485_Message_C0();
-////    	RS485_Process_Queue(&huart1);
-//	}
+
+	static EasyTimer_t RS485TimerA0 = {.start_time = 0, .interval = 21};
+	if (Timer_HasElapsed(&RS485TimerA0)) {
+		Send_Combined_Message();
+	}
 
 }
 

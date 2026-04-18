@@ -54,6 +54,7 @@ SPI_HandleTypeDef hspi3;
 SMRSubGConfig_t MRSUBG_RadioInitStruct;
 MRSubG_802_15_4_PcktFields_t MRSUBG_PacketSettingsStruct;
 UART_HandleTypeDef huart1;
+TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
 
@@ -67,6 +68,7 @@ static void MX_SPI3_Init(void);
 static void MX_ADC1_Init(void);
 static void MX_USART1_UART_Init(void);
 static void MX_MRSUBG_Init(void);
+static void MX_TIM2_Init(void);
 float Broadcast_Temperature(void);
 /* USER CODE BEGIN PFP */
 
@@ -82,12 +84,13 @@ int loop_count = 0; // Variable to watch in the debugger
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
-uint16_t watchpoint1;
+uint32_t watchpoint1;
 uint16_t watchpoint1_5;
-uint16_t watchpoint2;
-uint16_t watchpoint2_5;
-uint16_t watchpoint3;
-uint16_t watchpoint5;
+uint32_t watchpoint2;
+uint32_t watchpoint2_5;
+uint32_t watchpoint3;
+uint32_t watchpoint4;
+uint32_t watchpoint5;
 
 uint8_t watchpoint_th;
 
@@ -95,8 +98,18 @@ uint8_t device_id;
 uint8_t thing1;
 uint8_t thing2;
 
-uint16_t watchpoint6;
-uint16_t watchpoint7;
+int32_t watchpointX_int;
+int32_t watchpointY_int;
+int32_t watchpointZ_int;
+
+float watchpointUNI;
+
+float watchpointX_f;
+float watchpointY_f;
+float watchpointZ_f;
+
+float watchpointGF;
+int32_t test;
 
 /**
   * @brief  The application entry point.
@@ -134,6 +147,7 @@ int main(void)
   MX_ADC1_Init();
   MX_USART1_UART_Init();
   MX_MRSUBG_Init();
+  MX_TIM2_Init();
 
   // EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
   // EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
@@ -143,6 +157,7 @@ int main(void)
 //  ADXL372_WriteReg(0x00, 0x01, ACC_SPI_CS_Pin); // write something to address 0
 
   ADXL372_Init(ACC_SPI_CS_Pin);
+//  ADC_Init();
 
 //  device_id = ADXL372_ReadReg(0x00, ACC_SPI_CS_Pin);
 //
@@ -150,8 +165,6 @@ int main(void)
 //
 //  thing1 = ADXL372_ReadReg(0x01, ACC_SPI_CS_Pin);
 //  thing2 = ADXL372_ReadReg(0x02, ACC_SPI_CS_Pin);
-
-
 
 
   while (1)
@@ -162,14 +175,30 @@ int main(void)
 	Sample_ADXL372(ACC_SPI_CS_Pin);
 
 //	watchpoint1 = strain_gauge_adc;
-//	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
+////	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
 //	watchpoint2 = uniaxial_adc;
-//	watchpoint2_5 = ADC_to_Voltage(uniaxial_adc);
-	watchpoint3 = triaxial_x_raw;
-	watchpoint5 = triaxial_z_raw;
 //
-	watchpoint6 = triaxial_x_g;
-	watchpoint7 = triaxial_z_g;
+//	watchpoint3 = triaxial_x_raw;
+//	watchpoint4 = triaxial_x_raw;
+//	watchpoint5 = triaxial_z_raw;
+//
+//	watchpointX_int = triaxial_x_g;
+//	watchpointY_int = triaxial_y_g;
+//	watchpointZ_int = triaxial_z_g;
+//
+//	watchpointX_f = triaxial_x_g / 100.0;
+//	watchpointY_f = triaxial_y_g / 100.0;
+//	watchpointZ_f = triaxial_z_g / 100.0;
+//
+//	watchpointUNI = (Get_G_Force(ADC_to_Voltage(uniaxial_adc))*1000.0);
+//	watchpointGF = g_force;
+//
+//	test = uniaxial_g/1000;
+
+	//	watchpoint5 = triaxial_z_raw;
+////
+//	watchpoint6 = Get_G_Force(watchpoint2_5);
+//	watchpoint7 = adc_buffer[1];
 
 	// sample ADCs here
 	Sample_ADCs();
@@ -230,6 +259,58 @@ void PeriphCommonClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 4294967295;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_RESET;
+  sSlaveConfig.InputTrigger = TIM_TS_ITR0;
+  if (HAL_TIM_SlaveConfigSynchro(&htim2, &sSlaveConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+
 }
 
 /**
@@ -408,7 +489,7 @@ static void MX_ADC1_Init(void)
   */
   ConfigChannel.Channel = ADC_CHANNEL_VINM1; // IA 1 - Pin 30 (PB0)
   ConfigChannel.Rank = ADC_RANK_1;
-  ConfigChannel.VoltRange = ADC_VIN_RANGE_2V4; // STM only sees 3.3V, 3.6Vref is unreachable
+  ConfigChannel.VoltRange = ADC_VIN_RANGE_3V6; // STM only sees 3.3V, 3.6Vref is unreachable
   ConfigChannel.CalibrationPoint.Number = ADC_CALIB_NONE;
 //  ConfigChannel.CalibrationPoint.Gain = 0x00;
 //  ConfigChannel.CalibrationPoint.Offset = 0x00;
@@ -422,6 +503,8 @@ static void MX_ADC1_Init(void)
   
   ConfigChannel.Channel = ADC_CHANNEL_VINP1; // IA 2 - Pin 31 (PB1)
   ConfigChannel.Rank = ADC_RANK_2; // the second ADC channel
+  ConfigChannel.VoltRange = ADC_VIN_RANGE_3V6; // STM only sees 3.3V, 3.6Vref is unreachable
+  ConfigChannel.CalibrationPoint.Number = ADC_CALIB_NONE;
 //  ConfigChannel.VoltRange = ADC_VIN_RANGE_3V6; // was 1V2
 //  ConfigChannel.CalibrationPoint.Number = ADC_CALIB_NONE;
 //  ConfigChannel.CalibrationPoint.Gain = 0x00;

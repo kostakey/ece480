@@ -2,10 +2,12 @@
 #define __SENSORS_
 
 #include "adxl.h"
+#include <stdlib.h>
 
 #define ADC_BITS 12
-#define ADC_MAX_VALUE 4095
-#define ADC_VREF 2400 // vref in mV
+#define ADC_MAX_VALUE 4095.0
+#define ADC_VREF 2400.0 // vref in mV
+//#define ADC_VREF2 1400 // vref in mV
 #define IA_GAIN 100
 
 // define sensor signals here, also create processing functions here -- shared between the gatewaya and the sensor board
@@ -25,25 +27,48 @@ static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations
 // uniaxial things -- from ADC
 static uint16_t uniaxial_adc;
 static uint16_t uniaxial_v; // raw voltage
+static int32_t uniaxial_g; // raw voltage
 static uint16_t uniaxial_hz; // frequency
 
 // triaxial things -- 16 bit sigs from SPI
-static uint16_t triaxial_x_g;
-static uint16_t triaxial_y_g;
-static uint16_t triaxial_z_g;
+static int16_t triaxial_x_g;
+static int16_t triaxial_y_g;
+static int16_t triaxial_z_g;
 
-//extern int16_t triaxial_x_raw;
-//extern int16_t triaxial_y_raw;
-//extern int16_t triaxial_z_raw;
+//static int16_t triaxial_x_raw;
+//static int16_t triaxial_y_raw;
+//static int16_t triaxial_z_raw;
 
 //triaxial_x_g = ADXL372_GetG(triaxial_x_raw);
 //triaxial_y_g = ADXL372_GetG(triaxial_y_raw);
 //triaxial_z_g = ADXL372_GetG(triaxial_z_raw);
 
-uint16_t ADC_to_Voltage(uint16_t adc){
-    return (uint16_t)((uint32_t)adc * ADC_VREF) / ADC_MAX_VALUE;
+//uint16_t ADC_to_Voltage(uint16_t adc){
+//    return (uint16_t)((uint32_t)adc * ADC_VREF) / ADC_MAX_VALUE;
+//}
+
+float voltage_mv;
+float offset_voltage;
+float g_force;
+
+uint16_t ADC_to_Voltage(uint32_t adc){
+    return (uint16_t)((uint32_t) (adc * 3600.0) / ADC_MAX_VALUE);
 }
 
+int32_t Get_G_Force(uint16_t v) {
+    // 1. Convert ADC to mV (Assumes 3.6V Range setting)
+//    voltage_mv = (adc_raw * 3600.0f) / 4095.0f;
+
+    // 2. Subtract Bias (1.7V = 1700mV)
+    offset_voltage = v - 1800.0f;
+
+    // 3. Divide by Sensitivity (5mV per g)
+    g_force = offset_voltage / 5.0f;
+
+    return g_force;
+}
+
+// the triaxial accelerometer has a very large sensing range -- better for large shock forces rather than finer sensing
 float Raw_to_G(int16_t raw_val) {
     // 1. Handle Sign Extension for 12-bit data
     // The ADXL372 uses 12 bits. If bit 11 (0x800) is set, it's negative.

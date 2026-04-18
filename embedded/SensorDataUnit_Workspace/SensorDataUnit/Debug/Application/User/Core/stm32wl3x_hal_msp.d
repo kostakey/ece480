@@ -32,6 +32,8 @@ Application/User/Core/stm32wl3x_hal_msp.o: \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_rcc_ex.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_spi.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_spi_ex.h \
+ ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_tim.h \
+ ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_tim_ex.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_uart.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_uart_ex.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_mrsubg.h \
@@ -46,7 +48,8 @@ Application/User/Core/stm32wl3x_hal_msp.o: \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_utils.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_gpio.h \
  ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_pwr.h \
- ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_dma.h
+ ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_dma.h \
+ ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_tim.h
 ../../Core/Inc/main.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal.h:
 ../../Core/Inc/stm32wl3x_hal_conf.h:
@@ -79,6 +82,8 @@ Application/User/Core/stm32wl3x_hal_msp.o: \
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_rcc_ex.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_spi.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_spi_ex.h:
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_tim.h:
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_tim_ex.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_uart.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_uart_ex.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_hal_mrsubg.h:
@@ -94,3 +99,4 @@ Application/User/Core/stm32wl3x_hal_msp.o: \
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_gpio.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_pwr.h:
 ../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_dma.h:
+../../Drivers/STM32WL3x_HAL_Driver/Inc/stm32wl3x_ll_tim.h:
