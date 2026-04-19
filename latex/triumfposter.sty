@@ -1,0 +1,136 @@
+% For use with a0poster.cls
+% Available font sizes:
+% \tiny 12pt
+% \scriptsize 14.4pt
+% \footnotesize 17.28pt
+% \small 20.74pt
+% \normalsize 24.88pt
+% \large 29.86pt
+% \Large 35.83pt
+% \LARGE 43pt
+% \huge 51.6pt
+% \Huge 61.92pt
+% \veryHuge 74.3pt
+% \VeryHuge 89.16pt
+% \VERYHuge 107pt
+\ProvidesPackage{triumfposter}[2018/05/15 v0.1 triumfposter (CB)]
+\usepackage{triumflogo}
+\usepackage{tikz}
+\usepackage[a0paper,
+            left=3cm,
+            right=3cm,
+            top=6cm,
+            bottom=6cm,
+            % showframe
+            ]{geometry}
+\usepackage{subcaption}
+\usepackage{tikzpagenodes}
+\usepackage{authblk} %https://tex.stackexchange.com/questions/214404/add-affiliations-to-the-authors-name-in-the-article-class
+\usepackage{helvet}
+
+% colors!!
+% \usepackage[dvipsnames]{xcolor}
+% \definecolor{StateGreen}{HTML}{18453B}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\setcounter{Maxaffil}{0}
+\renewcommand\Authfont{\huge}
+\renewcommand\Affilfont{\LARGE}
+\renewcommand\AB@affilsepx{, \protect\Affilfont}
+
+\renewcommand{\title}[1]{\renewcommand{\@title}{\vspace{-0.5em}\VeryHuge\color{StateGreen}#1\vspace{0.2em}}}
+
+\renewcommand\@seccntformat[1]{\csname prepend@#1\endcsname}
+% \newcommand{\prepend@section}{\thesection\quad} % uncomment for section numbering 
+\newcommand{\prepend@subsection}{\thesubsection\quad} %uncomment for subsection numbering
+\newcommand{\prepend@subsubsection}{\thesubsubsection\quad} %uncomment for subsubsection numbering
+
+
+\newcommand{\sectiona}[1]{%
+  \section[#1]{\color{StateGreen}\centering\LARGE\scshape #1}}
+\newcommand{\sectionb}[1]{%
+  \section[#1]{\centering\LARGE{\color{StateGreen}\scshape #1}\vspace{-0.5em} \noindent\color{StateGreen}\makebox[\linewidth]{\rule{\columnwidth}{10pt}}}}
+
+%otherwise we get a space at the left hand side of the header
+\setlength{\parindent}{0cm}
+
+\newcommand{\headerhelper}[2][]
+{
+\bgroup
+    \jeroen@set@keys{#1}%%
+
+\begin{tikzpicture}[overlay, remember picture]%
+
+% Define the coordinates where the logo/text for header/footer will go
+\coordinate (headercenter) at (current page.north);
+\coordinate (headerlogo) at (current page.north west);
+\coordinate (headertext) at (current page.north east);
+\coordinate (footercenter) at (current page.south); 
+\coordinate (footerlogo) at (current page.south east); 
+\coordinate (footertext) at (current page.south west); 
+
+\node [name=headerbackground,
+anchor=base,
+fill=\jeroen@get{backgroundcolor},
+text = white,
+minimum width=\paperwidth,
+minimum height=0.15\paperheight] at (headercenter) { }; 
+% {\huge{\textsc{Centered Text, or space for additional logos}}}; 
+
+\node [name=headerlogo, anchor=west, xshift=0cm, yshift=-3cm] at (headerlogo) {
+%  \begin{tikzpicture}[scale=\jeroen@get{scale}, rotate=\jeroen@get{rotate}, y=-0.75pt, x=0.75pt]%
+%     \triumflogotextpath %\boomerang
+%   \end{tikzpicture}
+\includegraphics[height=7in]{resources/michigan-state-university-2-logo.png}
+};
+
+\node [name=headercenter, xshift=0cm, yshift=-3.2cm] at (headercenter) {
+%  \begin{tikzpicture}[scale=\jeroen@get{scale}, rotate=\jeroen@get{rotate}, y=-0.75pt, x=0.75pt]%
+%     \triumflogotextpath %\boomerang
+%   \end{tikzpicture}
+\includegraphics[height=1.9in]{resources/SR_WordMark_2019_White.png}
+};
+
+\node [name=headertext, anchor=east, text width=40cm, align=right, xshift=-3cm, yshift=-3.2cm] at (headertext){
+  \Large\color{\jeroen@get{fill}}\bfseries\hfill College of Engineering\\
+  \Large\color{\jeroen@get{fill}}\bfseries\hfill Electrical and Computer Engineering
+};
+
+% no color for footer background
+\node [name=footerbackground,
+anchor=base,
+fill= \jeroen@get{backgroundcolor},
+text = white,
+minimum width=\paperwidth,
+minimum height=0.12\paperheight] at (footercenter) { }; 
+% {\huge{\textsc{Centered Text, or space for additional logos}}}; 
+
+% \node [name=footerlogo, anchor=west, xshift=-117cm, yshift=2.15cm] at (footerlogo) {
+% %  \begin{tikzpicture}[scale=\jeroen@get{scale}, rotate=0, y=-0.75pt, x=0.75pt]%
+% %     \triumftaglinepath
+% %   \end{tikzpicture}
+% \includegraphics[height=1.25in]{resources/SR_WordMark_2019_White.png}
+% };
+
+
+% If we want the text at the bottom... or space for additional logos
+% \node [name=footertext, anchor=west, text width=30cm, align=left, xshift=2cm, yshift=2cm] at (footertext){
+%   \Large\color{\jeroen@get{taglinefill}}\bfseries Canada's particle accelerator centre\\
+%   \Large\color{\jeroen@get{taglinefill}}\bfseries Centre canadien d'acc\'el\'eration des particules
+% };
+
+
+\end{tikzpicture}%
+
+\egroup
+}
+
+\newcommand{\darkheader}
+{
+  \headerhelper[backgroundcolor=StateGreen,fill=white,taglinefill=StateGreen,scale=0.5]
+}
+\newcommand{\lightheader}
+{
+  \headerhelper[backgroundcolor=white,fill=StateGreen,taglinefill=StateGreen,scale=0.5]
+}
