@@ -50,9 +50,9 @@ void Send_Combined_Message(void) {
     rs_msg.data[5] = (uint8_t)(triaxial_z_g >> 8);
 
     // 2. Pack Strain Gauge (2 bytes)
-    uint16_t strain_v = ADC_to_Voltage(strain_gauge_adc);
-    rs_msg.data[6] = (uint16_t)(strain_v);
-    rs_msg.data[7] = (uint16_t)(strain_v >> 8);
+    strain = (Get_Strain(ADC_to_Voltage(strain_gauge_adc)) * 100);
+    rs_msg.data[6] = (uint8_t)(strain);
+    rs_msg.data[7] = (uint8_t)(strain >> 8);
 
     // 3. Pack Uniaxial G-Force (4 bytes)
 //    uniaxial_g = (int32_t)(Get_G_Force(ADC_to_Voltage(uniaxial_adc)) * 1000.0f);

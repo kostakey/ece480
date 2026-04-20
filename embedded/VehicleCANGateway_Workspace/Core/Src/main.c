@@ -139,6 +139,8 @@ uint16_t test;
 
 uint16_t watchpointp;
 
+int16_t watchpoints;
+
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
@@ -216,7 +218,7 @@ int main(void)
 //	  HAL_Delay(500);
 
 	  RS485bus_Read();
-
+//	  watchpoints = strain / 100;
 	  // 1. Trigger Software Reset (Bit 31 of 0x0800)
 //	  TCAN4550_WriteReg(0x0800, 0x80000000, CAN1_SPI_CS_Pin);
 

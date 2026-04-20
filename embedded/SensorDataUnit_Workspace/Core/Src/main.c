@@ -84,13 +84,13 @@ int loop_count = 0; // Variable to watch in the debugger
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
-uint32_t watchpoint1;
+uint16_t watchpoint1;
 uint16_t watchpoint1_5;
 uint32_t watchpoint2;
 uint32_t watchpoint2_5;
 uint32_t watchpoint3;
 uint32_t watchpoint4;
-uint32_t watchpoint5;
+float watchpoint5;
 
 uint8_t watchpoint_th;
 
@@ -175,7 +175,8 @@ int main(void)
 	Sample_ADXL372(ACC_SPI_CS_Pin);
 
 //	watchpoint1 = strain_gauge_adc;
-////	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
+//	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
+//	watchpoint5 = strain / 100.0f;
 //	watchpoint2 = uniaxial_adc;
 //
 //	watchpoint3 = triaxial_x_raw;

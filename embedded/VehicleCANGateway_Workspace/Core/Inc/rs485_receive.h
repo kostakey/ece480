@@ -148,7 +148,7 @@ void RS485bus_Read(void) {
                     triaxial_z_g = (int16_t)((my_local_rx[6] << 8) | my_local_rx[5]);
 
                     // Strain Gauge (Bytes 7-8)
-                    strain_gauge_diff_v = (uint16_t)((my_local_rx[8] << 8) | my_local_rx[7]);
+                    strain = (int16_t)((my_local_rx[8] << 8) | my_local_rx[7]);
 
                     // Uniaxial G-Force (Bytes 9-12)
                     uniaxial_g = (int32_t)( ((uint32_t)my_local_rx[12] << 24) |

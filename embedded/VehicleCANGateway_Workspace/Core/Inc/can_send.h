@@ -48,8 +48,8 @@ void Send_Message_901(uint16_t cs) {
     tx_msg.data[3] = 0;
     tx_msg.data[4] = 0;
     tx_msg.data[5] = 0;
-    tx_msg.data[6] = 0;
-    tx_msg.data[7] = 0;
+    tx_msg.data[6] = (uint8_t)(strain & 0xFF);
+    tx_msg.data[7] = (uint8_t)(strain >> 8);
 
     ctr++; // update rolling counter
 
@@ -87,22 +87,20 @@ void CANbus_Send(uint16_t cs){
 	static EasyTimer_t CANTimer900 = {.start_time = 0, .interval = 10};  // 10ms
     if (Timer_HasElapsed(&CANTimer900)) {
     	Send_Message_900(cs);
-    	Send_Message_901(cs);
-    	Send_Message_902(cs);
 
 	}
 
-//    static EasyTimer_t CANTimer901 = {.start_time = 33, .interval = 10};  // 10ms
-//	if (Timer_HasElapsed(&CANTimer901)) {
-//		Send_Message_901(cs);
-//
-//	}
-//
-//    static EasyTimer_t CANTimer902 = {.start_time = 66, .interval = 10};  // 10ms
-//	if (Timer_HasElapsed(&CANTimer902)) {
-//		Send_Message_902(cs);
-//
-//	}
+    static EasyTimer_t CANTimer901 = {.start_time = 0, .interval = 10};  // 10ms
+	if (Timer_HasElapsed(&CANTimer901)) {
+		Send_Message_901(cs);
+
+	}
+
+    static EasyTimer_t CANTimer902 = {.start_time = 0, .interval = 10};  // 10ms
+	if (Timer_HasElapsed(&CANTimer902)) {
+		Send_Message_902(cs);
+
+	}
 
 //    if (Timer_HasElapsed(&CANTimer601)) {
 //    		  Send_Test_CAN_Message(cs);
