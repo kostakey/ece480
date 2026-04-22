@@ -16,12 +16,20 @@
 \ProvidesPackage{triumfposter}[2018/05/15 v0.1 triumfposter (CB)]
 \usepackage{triumflogo}
 \usepackage{tikz}
-\usepackage[a0paper,
+% \usepackage[a0paper,
+%             left=3cm,
+%             right=3cm,
+%             top=6cm,
+%             bottom=6cm,
+%             % showframe
+%             ]{geometry}
+\usepackage[paperwidth=38in,
+            paperheight=28in,
             left=3cm,
             right=3cm,
             top=6cm,
             bottom=6cm,
-            % showframe
+            % showframe % keep this commented unless debugging layout
             ]{geometry}
 \usepackage{subcaption}
 \usepackage{tikzpagenodes}
@@ -35,11 +43,13 @@
 \renewcommand{\familydefault}{\sfdefault}
 
 \setcounter{Maxaffil}{0}
-\renewcommand\Authfont{\huge}
-\renewcommand\Affilfont{\LARGE}
+% \renewcommand\Authfont{\huge}
+\renewcommand\Authfont{\Large}
+\renewcommand\Affilfont{\large}
+% \renewcommand\Affilfont{\LARGE}
 \renewcommand\AB@affilsepx{, \protect\Affilfont}
 
-\renewcommand{\title}[1]{\renewcommand{\@title}{\vspace{-0.5em}\VeryHuge\color{StateGreen}#1\vspace{0.2em}}}
+\renewcommand{\title}[1]{\renewcommand{\@title}{\vspace{-1.8em}\veryHuge\color{StateGreen}#1\vspace{-0.3em}}}
 
 \renewcommand\@seccntformat[1]{\csname prepend@#1\endcsname}
 % \newcommand{\prepend@section}{\thesection\quad} % uncomment for section numbering 
@@ -48,9 +58,9 @@
 
 
 \newcommand{\sectiona}[1]{%
-  \section[#1]{\color{StateGreen}\centering\LARGE\scshape #1}}
+  \section[#1]{\color{StateGreen}\centering\Large\scshape #1}}
 \newcommand{\sectionb}[1]{%
-  \section[#1]{\centering\LARGE{\color{StateGreen}\scshape #1}\vspace{-0.5em} \noindent\color{StateGreen}\makebox[\linewidth]{\rule{\columnwidth}{10pt}}}}
+  \section[#1]{\centering\Large{\color{StateGreen}\scshape #1}\vspace{-0.5em} \noindent\color{StateGreen}\makebox[\linewidth]{\rule{\columnwidth}{1pt}}}}
 
 %otherwise we get a space at the left hand side of the header
 \setlength{\parindent}{0cm}
@@ -78,21 +88,21 @@ minimum width=\paperwidth,
 minimum height=0.15\paperheight] at (headercenter) { }; 
 % {\huge{\textsc{Centered Text, or space for additional logos}}}; 
 
-\node [name=headerlogo, anchor=west, xshift=0cm, yshift=-3cm] at (headerlogo) {
+\node [name=headerlogo, anchor=west, xshift=0cm, yshift=-2.7cm] at (headerlogo) {
 %  \begin{tikzpicture}[scale=\jeroen@get{scale}, rotate=\jeroen@get{rotate}, y=-0.75pt, x=0.75pt]%
 %     \triumflogotextpath %\boomerang
 %   \end{tikzpicture}
 \includegraphics[height=7in]{resources/michigan-state-university-2-logo.png}
 };
 
-\node [name=headercenter, xshift=0cm, yshift=-3.2cm] at (headercenter) {
+\node [name=headercenter, xshift=0cm, yshift=-2.7cm] at (headercenter) {
 %  \begin{tikzpicture}[scale=\jeroen@get{scale}, rotate=\jeroen@get{rotate}, y=-0.75pt, x=0.75pt]%
 %     \triumflogotextpath %\boomerang
 %   \end{tikzpicture}
-\includegraphics[height=1.9in]{resources/SR_WordMark_2019_White.png}
+\includegraphics[height=1.8in]{resources/SR_WordMark_2019_White.png}
 };
 
-\node [name=headertext, anchor=east, text width=40cm, align=right, xshift=-3cm, yshift=-3.2cm] at (headertext){
+\node [name=headertext, anchor=east, text width=40cm, align=right, xshift=-3cm, yshift=-2.7cm] at (headertext){
   \Large\color{\jeroen@get{fill}}\bfseries\hfill College of Engineering\\
   \Large\color{\jeroen@get{fill}}\bfseries\hfill Electrical and Computer Engineering
 };
@@ -103,7 +113,7 @@ anchor=base,
 fill= \jeroen@get{backgroundcolor},
 text = white,
 minimum width=\paperwidth,
-minimum height=0.12\paperheight] at (footercenter) { }; 
+minimum height=0.1\paperheight] at (footercenter) { }; 
 % {\huge{\textsc{Centered Text, or space for additional logos}}}; 
 
 % \node [name=footerlogo, anchor=west, xshift=-117cm, yshift=2.15cm] at (footerlogo) {

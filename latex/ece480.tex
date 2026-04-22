@@ -6,9 +6,11 @@
 \usepackage{lipsum}
 \usepackage{float}
 \usepackage{multicol}
-\columnsep=60pt % spacing between columns
+\columnsep=30pt % spacing between columns
 \columnseprule=0pt % vertical line between columns
 \usepackage{amsfonts, amsmath, amsthm, amssymb} % For math fonts, symbols and environments
+\usepackage{tabularx}
+\usepackage{booktabs} % For professional looking lines
 
 \usepackage{hyperref}
 
@@ -20,16 +22,18 @@
 % \author{T.~Author1, T.~Author2, and T.~Author3\\TRIUMF, Vancouver, BC, Canada}
 
 % Multiple Affiliations
-\author[1]{Casey Carr}
-\author[2]{Luke Hendler}
-\author[3]{Ian King}
-\author[4]{Nathan Marchywka}
-\author[5]{Hans Ross}
-\author[6]{Kosta Sergakis}
+\renewcommand{\Authand}{, }   % Replaces the "and" between two author blocks with a comma
+\renewcommand{\Authands}{, }  % Replaces the "and" in a list of 3+ author blocks with a comma
+
+\author[1]{Casey Carr, Luke Hendler, Ian King, Hans Ross}
+\author[1, 2]{Nathan Marchywka, and Kosta Sergakis}
+
+% \author[1, 2]{Project Sponsor: Matthew Meier}
+% \author[1]{Project Facilitator: Dr. Joydeep Mitra}
 % \author[1,2]{T.V.~Author4}
 \affil[1]{Michigan State University, East Lansing, Michigan}
 \affil[2]{Michigan State Formula Racing, East Lansing, Michigan}
-\date{\vspace{-5ex}}
+\date{\vspace{-7ex}}
 
 \begin{document}
 \maketitle
@@ -37,7 +41,119 @@
 \darkheader
 
 \begin{multicols}{3}
-\large
+\small
+
+%% begin the madness :P
+
+\sectiona{Abstract}
+  
+  This project presents the development and validation of a modular, low-cost load and direction-sensing system designed for Formula SAE vehicle testing. The system provides an adaptable alternative to expensive commercial sensors by integrating strian gauge-based load sensing with uniaxial and triaxial accelerometers to capture dynamic force magnitude and direction.
+
+  %% visio diagrams here?
+
+  \vspace{1.2cm}
+
+  \begin{center}
+    \includegraphics[width=0.33\textwidth]{resources/architecture.png}
+    \\
+    \textbf{Figure 1: System communication architecture}
+    \label{architecture}
+  \end{center}
+
+
+% \vspace{-0.75cm}
+
+\sectiona{Testing \& Correlation}
+
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{resources/fft.png}
+    \\
+    \textbf{Figure 2: Fast Fourier Transform (FFT) of triaxial acceleration and strain of plate during drop test}
+    \label{fft}
+  \end{center}
+
+  \begin{center}
+    \includegraphics[width=0.32\textwidth]{resources/z_accel.png}
+    \\
+    \textbf{Figure 3: Z-direction acceleration of plate during drop test}
+    \label{z_accel}
+  \end{center}
+  
+  \begin{center}
+    \includegraphics[width=0.313\textwidth]{resources/strain.png}
+    \\
+    \textbf{Figure 4: Strain of plate during drop test}
+    \label{strain}
+  \end{center}
+
+  This correlation demonstrates that the system successfully integrates strain and inertial measurements to provide a comprehensive understanding of loading conditions.
+
+% \vspace{-0.75cm}
+
+\sectiona{Performance Evaluation}
+
+  \begin{center}
+    \footnotesize
+    % \small % If it still overlaps, try \footnotesize
+    \renewcommand{\arraystretch}{1.6} % More vertical space
+    % We define the first column to be wider (4.5cm) to fit "Characterization"
+    \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{6cm} X X >{\centering\arraybackslash}p{2cm}}
+        \toprule
+        \textbf{Specification Category} & \textbf{Requirement} & \textbf{Observed Performance} & \textbf{Status} \\
+        \midrule
+        Strain Measurement & Detect Structural Deformation & Correct trend observed, incorrect magnitude scaling & Partial \\
+        \hline
+        Acceleration Measurement & Capture Multi-Axis Motion & X, Y, and Z signals captured successfully & Met \\
+        \hline
+        Load Contextualization & Correlate Strain and Motion & Strong correlation observed & Met \\
+        \hline
+        Vibration Characterization & Identify Dynamic Response & Clear oscillatory behavior detected & Met \\
+        \hline
+        Frequency Analysis & Identify Vibration Modes & Peaks observed ($\sim$15-35Hz) & Met \\
+        \hline
+        Data Processing & Filter and Interpret Signals & Kalman filter improves signal quality & Met \\
+        \hline
+        Communication & Transmit data reliably & RS-485 and CAN functional & Met \\
+        \bottomrule
+    \end{tabularx}
+    \small
+    \\
+    \vspace{0.2cm}
+    \textbf{Table 1: Performance evaluation of key requirements}
+    \label{performance_table}
+  \end{center}
+
+  \vspace{-0.2cm}
+
+  \begin{itemize}
+    \item \textbf{Dynamic Response:} Captured synchronized transient strain and 3-axis acceleration. Peak acceleration values reached \textbf{41.5g (Y-axis)} and \textbf{56.0g (Z-axis)}, with clear oscillatory decay.
+    \item \textbf{Signal Processing:} The \textbf{Kalman Filter} significantly enhanced data quality, reducing noise standard deviation by \textbf{17.0\% (Y-axis)} and \textbf{18.5\% (Z-axis)} while maintaining a high correlation \textbf{($>$0.95)} with raw physical events.
+    \item \textbf{Vibration Characterization:} Frequency-domain analysis (FFT) identified dominant structural vibration modes between \textbf{15–35 Hz}, matching the expected natural frequencies of the test apparatus.
+    \item \textbf{System Performance:} Achieved high-fidelity data acquisition with sampling rates exceeding \textbf{100 kS/s}, ensuring no loss of transient data during impact events.
+  \end{itemize}
+
+  \vspace{-1cm}
+
+\sectiona{Cost Breakdown}
+
+  \begin{center}
+    \includegraphics[width=0.2\textwidth]{resources/pie_chart.png}
+    \\
+    \textbf{Figure 5: Total project cost breakdown}
+    \label{pie_chart}
+  \end{center} 
+
+\vspace{-0.75cm}
+
+\sectiona{Acknowledgements}
+
+  % \begin{itemize}
+  \textbf{Matthew Meier:} Project concept, technical direction, and feedback.
+  \\\textbf{Dr. Joydeep Mitra:} Course facilitation and engineering design guidance.
+  \\\textbf{MSU Formula Racing:} Access to testing environments and vehicle insights.
+  \\\textbf{MSU ECE Department:} Financial support and laboratory facilities.
+  % \end{itemize}
+
 
 \end{multicols}
 
