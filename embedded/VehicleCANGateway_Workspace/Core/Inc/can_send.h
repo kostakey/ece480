@@ -5,10 +5,10 @@
 #include "easytimer.h"
 #include "sensors.h"
 
-// define all CAN timers here
-
-//EasyTimer_t CANTimer600 = {.start_time = 0, .interval = 100};  // 500ms
-
+/*
+Formats and transmits Triaxial Accelerometer data (X, Y, Z)
+over CAN ID 0x900 with a 4-bit rolling counter.
+*/
 void Send_Message_900(uint16_t cs) {
     static uint8_t ctr = 0;
     TCAN_Message tx_msg;
@@ -32,14 +32,16 @@ void Send_Message_900(uint16_t cs) {
     TCAN4550_Write_Message(&tx_msg, cs);
 }
 
+/*
+Formats and transmits Strain Gauge data over CAN ID 0x901
+with a 4-bit rolling counter.
+*/
 void Send_Message_901(uint16_t cs) {
     static uint8_t ctr = 0;
     TCAN_Message tx_msg;
 
     tx_msg.id = 901;
     tx_msg.len = 8;
-
-//    uniaxial_hz = Uniaxial_Voltage_To_Freq(uniaxial_v);
 
     // Map your data to the buffer
     tx_msg.data[0] = ctr & 0x0F; // rolling counter stays between 0 and 15
@@ -57,14 +59,16 @@ void Send_Message_901(uint16_t cs) {
     TCAN4550_Write_Message(&tx_msg, cs);
 }
 
+/*
+Formats and transmits 32-bit Uniaxial G-force data over CAN ID 0x902
+with a 4-bit rolling counter.
+*/
 void Send_Message_902(uint16_t cs) {
     static uint8_t ctr = 0;
     TCAN_Message tx_msg;
 
     tx_msg.id = 902;
     tx_msg.len = 8;
-
-//    uniaxial_hz = Uniaxial_Voltage_To_Freq(uniaxial_v);
 
     // Map your data to the buffer
     tx_msg.data[0] = ctr & 0x0F; // rolling counter stays between 0 and 15
@@ -82,6 +86,10 @@ void Send_Message_902(uint16_t cs) {
     TCAN4550_Write_Message(&tx_msg, cs);
 }
 
+/*
+Main CAN transmission loop that manages independent 10ms timers
+for broadcasting sensor data frames.
+*/
 void CANbus_Send(uint16_t cs){
 
 	static EasyTimer_t CANTimer900 = {.start_time = 0, .interval = 10};  // 10ms
@@ -102,18 +110,6 @@ void CANbus_Send(uint16_t cs){
 
 	}
 
-//    if (Timer_HasElapsed(&CANTimer601)) {
-//    		  Send_Test_CAN_Message(cs);
-//    }
-
 }
-
-// void CAN2_Online(void){
-
-//     if (Timer_HasElapsed(&CAN2Timer)) {
-// 		  Send_Test_RS485_Message();
-// 	}
-
-// }
 
 #endif

@@ -13,17 +13,8 @@
 #define GAUGE_FACTOR 2.04
 #define EXCITATION 3.3
 
-// define sensor signals here, also create processing functions here -- shared between the gatewaya and the sensor board
-// keep in mind, each signal is 16 bits
-
-// need general ADC to raw voltage
-
 // strain gauge things -- from ADC
 static uint16_t strain_gauge_adc;
-//static uint16_t strain_gauge_plus_v;
-//static uint16_t strain_gauge_minus_adc;
-//static uint16_t strain_gauge_minus_v;
-//static uint16_t strain_gauge_diff_adc;
 static uint16_t strain_gauge_diff_v;
 static int16_t strain;
 static uint16_t strain_gauge_hz; // strain gauge frequency - see if oscillations can be picked up here
@@ -39,20 +30,6 @@ static int16_t triaxial_x_g;
 static int16_t triaxial_y_g;
 static int16_t triaxial_z_g;
 
-//static int16_t triaxial_x_raw;
-//static int16_t triaxial_y_raw;
-//static int16_t triaxial_z_raw;
-
-//triaxial_x_g = ADXL372_GetG(triaxial_x_raw);
-//triaxial_y_g = ADXL372_GetG(triaxial_y_raw);
-//triaxial_z_g = ADXL372_GetG(triaxial_z_raw);
-
-//uint16_t ADC_to_Voltage(uint16_t adc){
-//    return (uint16_t)((uint32_t)adc * ADC_VREF) / ADC_MAX_VALUE;
-//}
-
-//float voltage_mv;
-
 float offset_voltageG;
 float g_force;
 
@@ -60,26 +37,32 @@ float strain_init;
 float strain_corrected;
 float offset_voltageS;
 
+/*
+Converts a raw 12-bit ADC value to a millivolt (mV) representation
+based on a 3.6V scale.
+*/
 uint16_t ADC_to_Voltage(uint16_t adc){
     return (uint16_t)((uint32_t) (adc * 3600.0) / ADC_MAX_VALUE);
 }
 
+/*
+Calculates G-force from a voltage input by removing a 1.8V offset
+and applying the sensor's sensitivity scaling.
+*/
 float Get_G_Force(uint16_t v) {
-    // 1. Convert ADC to mV (Assumes 3.6V Range setting)
-//    voltage_mv = (adc_raw * 3600.0f) / 4095.0f;
-
-    // 2. Subtract Bias (1.7V = 1700mV)
+    
     offset_voltageG = v - 1800.0f;
 
-    // 3. Divide by Sensitivity (5mV per g)
     g_force = offset_voltageG / 5.0f;
 
     return g_force;
 }
 
+/*
+Converts voltage to strain using the Wheatstone bridge formula,
+accounting for gauge factor, excitation voltage, and amplifier gain.
+*/
 float Get_Strain(uint16_t v){
-
-
 
 	offset_voltageS = v - 1250.0f;
 
@@ -91,32 +74,19 @@ float Get_Strain(uint16_t v){
 
 }
 
-// the triaxial accelerometer has a very large sensing range -- better for large shock forces rather than finer sensing
+/*
+Converts raw 12-bit signed data from the triaxial accelerometer
+into a floating-point G-value.
+*/
 float Raw_to_G(int16_t raw_val) {
-    // 1. Handle Sign Extension for 12-bit data
-    // The ADXL372 uses 12 bits. If bit 11 (0x800) is set, it's negative.
     if (raw_val & 0x0800) {
-        // Apply sign extension: Fill bits 12-15 with 1s
         raw_val |= 0xF000;
     } else {
-        // Ensure bits 12-15 are 0s for positive numbers
         raw_val &= 0x0FFF;
     }
 
-    // 2. Convert to Gs
-    // Sensitivity is 100 mg/LSB.
-    // 100 mg = 0.1 G.
+
     return (float)raw_val * 0.1f;
 }
-
-//uint16_t Uniaxial_Voltage_To_Freq(uint16_t v){
-//
-//    return;
-//}
-//
-//uint16_t Strain_Gauge_Diff_To_Freq(uint16_t v){
-//
-//    return;
-//}
 
 #endif

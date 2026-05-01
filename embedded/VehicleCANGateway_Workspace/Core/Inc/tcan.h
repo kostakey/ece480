@@ -11,6 +11,10 @@ typedef struct {
     uint8_t  data[8]; // Payload
 } TCAN_Message;
 
+/*
+Writes a 32-bit word to a specific register address on the TCAN4550
+using the SPI write opcode (0x61).
+*/
 void TCAN4550_WriteReg(uint16_t address, uint32_t data, uint16_t chip_select) {
 	uint8_t spi_buf[8];
 
@@ -29,16 +33,13 @@ void TCAN4550_WriteReg(uint16_t address, uint32_t data, uint16_t chip_select) {
 	// 1. Transmit the 8 bytes
 	HAL_SPI_Transmit(&hspi3, spi_buf, 8, 100);
 
-	// 2. CRITICAL: Wait for the STM32 SPI peripheral to be completely IDLE
-	// Without this, CS might go high while the 64th bit is still on the wire.
-//	    while(__HAL_SPI_GET_FLAG(&hspi3, SPI_FLAG_BSY));
-
-	// 3. Tiny delay (approx 1us) to ensure the TCAN logic captures the edge
-	//    for(volatile int i=0; i<500; i++);
-
 	HAL_GPIO_WritePin(GPIOA, chip_select, GPIO_PIN_SET);
 }
 
+/*
+Reads a 32-bit word from a TCAN4550 register address by sending
+the read opcode (0x41) and toggling SPI.
+*/
 uint32_t TCAN4550_ReadReg(uint16_t address, uint16_t chip_select) {
     uint8_t tx_buf[4];
     uint8_t rx_buf[4];
@@ -63,6 +64,10 @@ uint32_t TCAN4550_ReadReg(uint16_t address, uint16_t chip_select) {
            ((uint32_t)rx_buf[3]);
 }
 
+/*
+Configures the TCAN4550, including power modes, watchdog settings,
+MRAM allocation for TX/RX buffers, and bitrate timing.
+*/
 void TCAN4550_Init(uint16_t chip_select) {
 
 	TCAN4550_WriteReg(0x0800, 0xC8000084, chip_select);
@@ -94,8 +99,8 @@ void TCAN4550_Init(uint16_t chip_select) {
 
 	// Inside Init, when you write to CCCR (0x1018):
 	// Bit 6 is DAR (Disable Automatic Retransmission)
-//	TCAN4550_WriteReg(0x1018, 0x00000041, chip_select); // Init + DAR
-//	TCAN4550_WriteReg(0x1018, 0x00000003, chip_select); // init
+	//	TCAN4550_WriteReg(0x1018, 0x00000041, chip_select); // Init + DAR
+	//	TCAN4550_WriteReg(0x1018, 0x00000003, chip_select); // init
 
 	for (uint32_t addr = 0x8000; addr < 0x8300; addr += 4) {
 	    TCAN4550_WriteReg(addr, 0x00000000, chip_select);
@@ -125,11 +130,15 @@ void TCAN4550_Init(uint16_t chip_select) {
 
 }
 
+/*
+Sends a hardcoded "HELLO!!!" test message to verify that the
+CAN bus and transceiver are physically operational.
+*/
 void TCAN4550_Send_Test_Message(uint16_t chip_select) {
 
 	TCAN4550_WriteReg(0x1018, 0x00000003, chip_select); // init
 	TCAN4550_WriteReg(0x8270, 0x048C0000, chip_select); // ID 0x123
-//	check8270 = TCAN4550_ReadReg(0x8270);
+	//	check8270 = TCAN4550_ReadReg(0x8270);
 	TCAN4550_WriteReg(0x8274, 0x00080000, chip_select); // DLC 8
 	TCAN4550_WriteReg(0x8278, 0x4C4C4548, chip_select); // "HELL"
 	TCAN4550_WriteReg(0x827C, 0x2121214F, chip_select); // "O!!!"
@@ -137,32 +146,12 @@ void TCAN4550_Send_Test_Message(uint16_t chip_select) {
 
 	TCAN4550_WriteReg(0x10D0, 0x00000001, chip_select); // send it
 
-
-//	// 1. Write the Header (Standard ID 123)
-//	    TCAN4550_WriteReg(0x8270, 0x048C0000, chip_select);
-//
-//	    // 2. Write DLC and Data
-//	    TCAN4550_WriteReg(0x8274, 0x00080000, chip_select);
-//	    TCAN4550_WriteReg(0x8278, 0x4C4C4548, chip_select);
-//	    TCAN4550_WriteReg(0x827C, 0x2121214F, chip_select);
-//
-//	    // 3. Trigger Send
-//	    TCAN4550_WriteReg(0x10D0, 0x00000001, chip_select);
-
 }
 
-//void TCAN4550_Send_Test_Message(uint16_t chip_select) {
-//    // 1. Write the ID and Data directly to MRAM.
-//    // No need to enter INIT mode to write to memory (0x8000+).
-//    TCAN4550_WriteReg(0x8270, 0x448C0000, chip_select); // ID 0x123
-//    TCAN4550_WriteReg(0x8274, 0x00080000, chip_select); // DLC 8
-//    TCAN4550_WriteReg(0x8278, 0x4C4C4548, chip_select); // "HELL"
-//    TCAN4550_WriteReg(0x827C, 0x2121214F, chip_select); // "O!!!"
-//
-//    // 2. Just trigger the send.
-//    TCAN4550_WriteReg(0x10D0, 0x00000001, chip_select);
-//}
-
+/*
+Maps a TCAN_Message struct into the device's MRAM buffer and
+triggers a transmission request via the TXBAR register.
+*/
 void TCAN4550_Write_Message(TCAN_Message *msg, uint16_t chip_select) {
     uint32_t headerW0 = 0;
     uint32_t headerW1 = 0;
