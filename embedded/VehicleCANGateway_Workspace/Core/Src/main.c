@@ -77,73 +77,6 @@ float Broadcast_Temperature(void);
 
 /* USER CODE END 0 */
 
-int loop_count = 0; // Variable to watch in the debugger
-//uint8_t data[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF};
-float watchpoint1;
-uint16_t watchpoint2;
-uint16_t watchpoint3;
-uint16_t watchpoint4;
-float watchpoint11;
-float watchpoint12;
-
-uint8_t watchpoint_raw;
-uint16_t watchpoint_more;
-
-uint16_t watchpoint_90;
-uint16_t watchpoint_91;
-uint16_t watchpoint_92;
-uint16_t watchpoint_93;
-uint16_t watchpoint_94;
-uint16_t watchpoint_95;
-uint16_t watchpoint_96;
-uint16_t watchpoint_97;
-
-uint16_t watchpoint_80;
-uint16_t watchpoint_81;
-uint16_t watchpoint_82;
-uint16_t watchpoint_83;
-uint16_t watchpoint_84;
-uint16_t watchpoint_85;
-uint16_t watchpoint_86;
-uint16_t watchpoint_87;
-
-uint32_t check8270;
-uint32_t check0820;
-uint32_t check1018;
-
-uint32_t check10C0;
-uint32_t check0824;
-
-uint32_t check10A0;
-
-uint32_t check1044;
-uint32_t check1040;
-
-uint32_t check10D4;
-uint32_t check10D0;
-
-int16_t watchpointX_int;
-int16_t watchpointY_int;
-int16_t watchpointZ_int;
-
-float watchpointX_f;
-float watchpointY_f;
-float watchpointZ_f;
-
-int32_t watchpointUNI_int;
-float watchpointUNI_f;
-
-uint16_t test3;
-
-uint16_t test;
-
-uint16_t watchpointp;
-
-int16_t watchpoints;
-
-
-//uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
-
 /**
   * @brief  The application entry point.
   * @retval int
@@ -183,73 +116,15 @@ int main(void)
 
 
   TCAN4550_Init(CAN1_SPI_CS_Pin);
-
-
-//  HAL_GPIO_WritePin(GPIOB, RS485_Driver_EN_Pin, GPIO_PIN_RESET);
-//  HAL_GPIO_WritePin(GPIOB, RS485_Receiver_EN_Pin, GPIO_PIN_RESET);
-
-
-//  	TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
-
-//  	TCAN4550_WriteReg(0x8270, 0x048C0000, CAN1_SPI_CS_Pin); // ID 0x123
-//  	    TCAN4550_WriteReg(0x8274, 0x00080000, CAN1_SPI_CS_Pin); // DLC 8
-//  	    TCAN4550_WriteReg(0x8278, 0x4C4C4548, CAN1_SPI_CS_Pin); // "HELL"
-//  	    TCAN4550_WriteReg(0x827C, 0x2121214F, CAN1_SPI_CS_Pin); // "O!!!"
-//
-//  	  TCAN4550_WriteReg(0x10D4, 0xFFFFFFFF, CAN1_SPI_CS_Pin);
-//  	check10D4 = TCAN4550_ReadReg(0x10D4, CAN1_SPI_CS_Pin);
-//  	  TCAN4550_WriteReg(0x10D0, 0x00000001, CAN1_SPI_CS_Pin);
-
-
-//  	  check10D0 = TCAN4550_ReadReg(0x10D0, CAN1_SPI_CS_Pin);
-//  	check1044 = TCAN4550_ReadReg(0x1044, CAN1_SPI_CS_Pin);
-//  	check1040 = TCAN4550_ReadReg(0x1040, CAN1_SPI_CS_Pin);
-
-//  	TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
-//  	TCAN4550_WriteReg(0x10D4, 0xFFFFFFFF, CAN1_SPI_CS_Pin);
-
   while (1)
   {
     /* USER CODE END WHILE */
-	  loop_count++; // Increment the counter
-
-//	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
-//	  TCAN4550_WriteReg(0x10D4, 0xFFFFFFFF, CAN1_SPI_CS_Pin);
-//	  HAL_Delay(500);
 
 	  RS485bus_Read();
-//	  watchpoints = strain / 100;
-	  // 1. Trigger Software Reset (Bit 31 of 0x0800)
-//	  TCAN4550_WriteReg(0x0800, 0x80000000, CAN1_SPI_CS_Pin);
 
-//	  watchpointX_int = triaxial_x_g;
-//	  watchpointY_int = triaxial_y_g;
-//	  watchpointZ_int = triaxial_z_g;
-////	  watchpointp = strain_gauge_diff_v;
-//	  watchpointUNI_int = uniaxial_g;
-//
-//	  watchpointX_f = triaxial_x_g / 100.0;
-//	  watchpointY_f = triaxial_y_g / 100.0;
-//	  watchpointZ_f = triaxial_z_g / 100.0;
-//
-////	  test = strain_gauge_hz;
-////	  watchpointUNI_int = uniaxial_g;
-//	  watchpointUNI_f = uniaxial_g / 1000.0f;
-
-//	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
 	  CANbus_Send(CAN1_SPI_CS_Pin);
-	  // Do CAN2 also
-
-//
-//	  static EasyTimer_t CANTimer124 = {.start_time = 0, .interval = 500};  // 500ms
-//	      if (Timer_HasElapsed(&CANTimer124)) {
-//	    	  TCAN4550_Send_Test_Message(CAN1_SPI_CS_Pin);
-
-//	  	}
-//	  Send_Test_CAN_Message(CAN1_SPI_CS_Pin);
-//	  HAL_Delay(100);
+	
   }
-//  }
   /* USER CODE END 3 */
 }
 

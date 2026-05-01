@@ -84,33 +84,6 @@ int loop_count = 0; // Variable to watch in the debugger
 
 //uint8_t canTx[] = {0xFF, 0xBB, 0xCC, 0xDD, 0xEE, 0xFF, 0x};
 
-uint16_t watchpoint1;
-uint16_t watchpoint1_5;
-uint32_t watchpoint2;
-uint32_t watchpoint2_5;
-uint32_t watchpoint3;
-uint32_t watchpoint4;
-float watchpoint5;
-
-uint8_t watchpoint_th;
-
-uint8_t device_id;
-uint8_t thing1;
-uint8_t thing2;
-
-int32_t watchpointX_int;
-int32_t watchpointY_int;
-int32_t watchpointZ_int;
-
-float watchpointUNI;
-
-float watchpointX_f;
-float watchpointY_f;
-float watchpointZ_f;
-
-float watchpointGF;
-int32_t test;
-
 /**
   * @brief  The application entry point.
   * @retval int
@@ -149,63 +122,18 @@ int main(void)
   MX_MRSUBG_Init();
   MX_TIM2_Init();
 
-  // EasyTimer_t TestTimer = {.start_time = 0, .interval = 500};  // 500ms
-  // EasyTimer_t TestTimer1 = {.start_time = 0, .interval = 50};  // 50ms
-
-//  watchpoint_th = ADXL372_Init(ACC_SPI_CS_Pin);
-
-//  ADXL372_WriteReg(0x00, 0x01, ACC_SPI_CS_Pin); // write something to address 0
-
   ADXL372_Init(ACC_SPI_CS_Pin);
-//  ADC_Init();
-
-//  device_id = ADXL372_ReadReg(0x00, ACC_SPI_CS_Pin);
-//
-//  device_id = ADXL372_ReadReg(0x00, ACC_SPI_CS_Pin);
-//
-//  thing1 = ADXL372_ReadReg(0x01, ACC_SPI_CS_Pin);
-//  thing2 = ADXL372_ReadReg(0x02, ACC_SPI_CS_Pin);
-
 
   while (1)
   {
     /* USER CODE END WHILE */
-	loop_count++; // Increment the counter
 
-	Sample_ADXL372(ACC_SPI_CS_Pin);
+	  Sample_ADXL372(ACC_SPI_CS_Pin);
 
-//	watchpoint1 = strain_gauge_adc;
-//	watchpoint1_5 = ADC_to_Voltage(strain_gauge_adc);
-//	watchpoint5 = strain / 100.0f;
-//	watchpoint2 = uniaxial_adc;
-//
-//	watchpoint3 = triaxial_x_raw;
-//	watchpoint4 = triaxial_x_raw;
-//	watchpoint5 = triaxial_z_raw;
-//
-//	watchpointX_int = triaxial_x_g;
-//	watchpointY_int = triaxial_y_g;
-//	watchpointZ_int = triaxial_z_g;
-//
-//	watchpointX_f = triaxial_x_g / 100.0;
-//	watchpointY_f = triaxial_y_g / 100.0;
-//	watchpointZ_f = triaxial_z_g / 100.0;
-//
-//	watchpointUNI = (Get_G_Force(ADC_to_Voltage(uniaxial_adc))*1000.0);
-//	watchpointGF = g_force;
-//
-//	test = uniaxial_g/1000;
+    // sample ADCs here
+    Sample_ADCs();
 
-	//	watchpoint5 = triaxial_z_raw;
-////
-//	watchpoint6 = Get_G_Force(watchpoint2_5);
-//	watchpoint7 = adc_buffer[1];
-
-	// sample ADCs here
-	Sample_ADCs();
-
-
-	RS485_Send();
+	  RS485_Send();
 
   }
   /* USER CODE END 3 */
